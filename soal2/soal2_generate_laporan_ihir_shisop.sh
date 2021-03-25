@@ -106,4 +106,4 @@ END {
     }
     printf("Wilayah bagian (region) yang memiliki total keuntungan (profit) yang paling sedikit adalah %s dengan total keuntungan %f\n",
     region, min_p);
-}' Laporan-TokoShiSop.tsv
+}' Laporan-TokoShiSop.tsv > hasil.txt
