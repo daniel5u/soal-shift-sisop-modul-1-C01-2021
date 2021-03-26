@@ -53,7 +53,7 @@ Kedua, inisialisasi variabel yang akan digunakan.
     max_row_id = 0;
 ```
 
-Ketiga, untuk setiap baris yang digunakan, hitung `cost price`. Jika `cost price` tersebut tidak bernilai nol, maka cari `profit ratio` terbesar. Untuk mencari `profit ratio` terbesar, `profit ratio` dari baris ke-2 digunakan sebagai nilai awal yang disimpan di variabel `max_pr`. Selanjutnya
+Ketiga, untuk setiap baris yang digunakan, hitung cost price. Jika cost price tersebut tidak bernilai nol, maka cari profit ratio terbesar. Untuk mencari profit ratio terbesar, profit ratio dari baris ke-2 digunakan sebagai nilai awal yang disimpan di variabel `max_pr`. Selanjutnya, jika ditemukan profit ratio yang lebih besar dari `max_pr`, maka perbarui nilai `max_pr` dengan profit ratio tersebut dan simpan Row IDnya ke `max_row_id`. Terakhir, jika ditemukan profit ratio yang terbesar lebih dari satu, maka perbarui nilai `max_row_id` dengan Row IDnya.
 
 ```
 #menghitung cost price
