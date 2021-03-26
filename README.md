@@ -196,3 +196,8 @@ Pada bagian akhir script diberi redirection.
 ```
 
 ## Soal 3
+### Soal 3a
+Diminta untuk mengunduh 23 gambar dari "https://loremflickr.com/320/240/kitten" serta menyimpan log-nya ke file "Foto.log". Apabila mengunduh gambar yang sama, maka gambar tersebut dihapus tanpa harus mengganti dengan gambar yang baru. Kemudian menyimpan gambar-gambar tersebut dengan format nama “Koleksi_XX” dengan nomor yang berurutan tanpa ada nomor yang hilang.
+
+**Solusi:**
+
