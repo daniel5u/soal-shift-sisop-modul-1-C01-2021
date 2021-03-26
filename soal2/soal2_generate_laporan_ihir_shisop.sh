@@ -1,13 +1,42 @@
+#!/bin/bash
+
+# Keterangan field
+# $1 = Row ID
+# $2 = Order ID
+# $3 = Order Date
+# $4 = Ship Date
+# $5 = Ship Mode
+# $6 = Customer ID
+# $7 = Customer Name
+# $8 = Segment
+# $9 = Country
+# $10 = City
+# $11 = State
+# $12 = Postal Code
+# $13 = Region
+# $14 = Product ID
+# $15 = Category
+# $16 = Sub-Category
+# $17 = Product Name
+# $18 = Sales
+# $19 = Quantity
+# $20 = Discount
+# $21 = Profit
+
+#mengganti field separator menjadi '\t'
+awk -F '\t' '
 #2a
-awk '
+#fungsi untuk menghitung cost price
 function cost_price(s, p) {
-    return (s - p)
+    return (s - p);
 }
+#fungsi untuk menghitung profit ratio
 function profit_ratio(p, cp) {
-    return (p / cp)
+    return (p / cp);
 }
+#fungsi untuk menghitung profit percentage
 function profit_percentage(pr) {
-    return (pr * 100)
+    return (pr * 100);
 }
 BEGIN {
     #2a
@@ -23,11 +52,15 @@ BEGIN {
     min_p = 0;
 }
 {
-    gsub(" ", "");
+    #mengabaikan header di NR == 1
     if(NR > 1) {
         #2a
+        #menghitung cost price
         curr_cost_price = cost_price($18, $21);
+
+        #menghindari pembagian dengan 0
         if(curr_cost_price != 0) {
+            #mencari profit ratio terbesar
             if(NR == 2) {
                 max_pr = profit_ratio($21, curr_cost_price);
                 max_row_id = $1;
@@ -45,17 +78,20 @@ BEGIN {
         }
 
         #2b
+        #split tanggal dengan delimiter "-" dan menyimpan hasilnya dalam array "date"
         split($3, date, "-");
+
+        #jika tahun dari tanggal adalah 2017 dan kotanya adalah "Albuquerque"
         if(date[3] == 17 && $10 == "Albuquerque") {
-            gsub("[A-Z]", " &", $7);
-            name = substr($7, 2);
-            customers[name]++;
+            customers[$7] += 1;
         }
 
         #2c
-        transactions[$8]++;
+        #menghitung jumlah transaksi segment 
+        transactions[$8] += 1;
 
         #2d
+        #menghitung total profit region
         profits[$13] += $21;
     }
 }
@@ -75,31 +111,31 @@ END {
     printf("\n");
 
     #2c
+    #mencari jumlah transaksi segment yang paling sedikit
     for(i in transactions) {
         if(flag_ts == 0) {
             min_ts = transactions[i];
             segment = i;
             flag_ts = 1;
         }
-        if(min_ts > transactions[i]) {
+        else if(min_ts > transactions[i]) {
             min_ts = transactions[i];
             segment = i;
         }
     }
-    gsub("[A-Z]", " &", segment);
-    segment = substr(segment, 2);
     printf("Tipe segmen customer yang penjualannya paling sedikit adalah %s dengan %d transaksi.\n", segment, min_ts);
 
     printf("\n");
 
     #2d
+    #mencari total keuntungan wilayah yang paling sedikit
     for(i in profits) {
         if(flag_p == 0) {
             min_p = profits[i];
             region = i;
             flag_p = 1;
         }
-        if(min_p > profits[i]) {
+        else if(min_p > profits[i]) {
             min_p = profits[i];
             region = i;
         }
