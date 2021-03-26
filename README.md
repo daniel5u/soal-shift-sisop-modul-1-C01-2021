@@ -403,3 +403,170 @@ Lalu jalankan command di atas secara otomatis menggunakan crontab seperti yang t
 ```
 
 ### Soal 3c
+Diminta untuk mengunduh gambar kelinci ("https://loremflickr.com/320/240/bunny") dan kucing ("https://loremflickr.com/320/240/kitten") seperti pada poin sebelumnya secara bergantian setiap hari dan memasukkannya ke dalam folder dengan nama "Kelinci_" atau "Kucing_" kemudian diikuti dengan tanggal unduh dengan format "DD-MM-YYYY"
+
+**Solusi:**
+
+Pertama, inisialisasi variabel `N` dan `sama`. Variabel `N` digunakan untuk membatasi jumlah file dan juga digunakan untuk memberi nama pada file gambar. Sedangkan variabel `sama` digunakan untuk menghitung dan menyimpan berapa jumlah file yang sama pada variabel tersebut.
+
+```
+N=23
+sama=0
+```
+
+Kemudian, inisialiasi variabel `now` dan `yest` untuk menyimpan tanggal hari ini dan kemarin sesuai format nama folder yang diminta.
+
+```
+now=$(date +"%d-%m-%Y")
+yest=$(date -d yesterday +"%d-%m-%Y")
+```
+
+Lalu, dilakukan pengecekkan apakah terdapat folder bernama `Kelinci_$yest`. Apabila ditemukan, maka `salah=$?` akan bernilai 0(nol) dan akan dilakukan pembuatan folder bernama `Kucing_$now`. Kemudian dilakukan proses pengunduhan dan pengecekkan gambar yang sama dengan cara seperti pada nomer 3a. Lalu, semua gambar yang telah diunduh beserta log foto dimasukkan ke folder yang telah dibuat.
+
+```
+cek=$(ls Kelinci_$yest)
+salah=$?
+if (($salah==0)) 
+then
+	mkdir "Kucing_$now"
+	for((a=1;a<=N;a=a+1))
+	do
+		if ((a<10))
+		then
+			wget -O Koleksi_0$a.jpg -a Foto.log https://loremflickr.com/320/240/kitten
+			for((b=1;b<a;b=b+1))
+			do
+				s=$(cmp "./Koleksi_0$a.jpg" "./Koleksi_0$b.jpg")
+				x=$?
+				if [ $x -eq 0 ]
+				then
+					sama=$((sama+1))
+					rm "./Koleksi_0$a.jpg"
+					N=$((N-1))
+					a=$((a-1))
+					break
+				fi
+			done
+		else
+			wget -O Koleksi_$a.jpg -a Foto.log https://loremflickr.com/320/240/kitten
+			for((b=1;b<a;b=b+1))
+			do
+				if ((b<10))
+				then
+					s=$(cmp "./Koleksi_$a.jpg" "./Koleksi_0$b.jpg")
+					x=$?
+					if [ $x -eq 0 ]
+					then
+						sama=$((sama+1))
+						rm "./Koleksi_$a.jpg"
+						N=$((N-1))
+						a=$((a-1))
+						break
+					fi
+				else
+					s=$(cmp "./Koleksi_$a.jpg" "./Koleksi_$b.jpg")
+					x=$?
+					if [ $x -eq 0 ]
+					then
+						sama=$((sama+1))
+						rm "./Koleksi_$a.jpg"
+						N=$((N-1))
+						a=$((a-1))
+						break
+					fi
+				fi
+			done
+		fi
+	done
+	mv ./Koleksi_* "./Kucing_$now"
+	mv ./Foto.log "./Kucing_$now"
+```
+
+Lalu, apabila `Kelinci_$yest` tidak ditemukan, maka `salah=$?` akan bernilai selain 0(nol) dan akan dilakukan proses pengunduhan gambar kelinci dengan cara yang sama seperti di atas, namun terdapat perbedaan di bagian nama folder dan link unduhnya.
+
+```
+else
+	mkdir "Kelinci_$now"
+	for((a=1;a<=N;a=a+1))
+	do
+		if ((a<10))
+		then
+			wget -O Koleksi_0$a.jpg -a Foto.log https://loremflickr.com/320/240/bunny
+			for((b=1;b<a;b=b+1))
+			do
+				s=$(cmp "./Koleksi_0$a.jpg" "./Koleksi_0$b.jpg")
+				x=$?
+				if [ $x -eq 0 ]
+				then
+					sama=$((sama+1))
+					rm "./Koleksi_0$a.jpg"
+					N=$((N-1))
+					a=$((a-1))
+					break
+				fi
+			done
+		else
+			wget -O Koleksi_$a.jpg -a Foto.log https://loremflickr.com/320/240/bunny
+			for((b=1;b<a;b=b+1))
+			do
+				if ((b<10))
+				then
+					s=$(cmp "./Koleksi_$a.jpg" "./Koleksi_0$b.jpg")
+					x=$?
+					if [ $x -eq 0 ]
+					then
+						sama=$((sama+1))
+						rm "./Koleksi_$a.jpg"
+						N=$((N-1))
+						a=$((a-1))
+						break
+					fi
+				else
+					s=$(cmp "./Koleksi_$a.jpg" "./Koleksi_$b.jpg")
+					x=$?
+					if [ $x -eq 0 ]
+					then
+						sama=$((sama+1))
+						rm "./Koleksi_$a.jpg"
+						N=$((N-1))
+						a=$((a-1))
+						break
+					fi
+				fi
+			done
+		fi
+	done
+	mv ./Koleksi_* "./Kelinci_$now"
+	mv ./Foto.log "./Kelinci_$now"
+fi
+```
+
+### Soal 3d
+Diminta untuk memindahkan seluruh folder ke zip yang diberi nama `Koleksi.zip` dan menguncinya dengan password berupa tanggal saat ini dengan format "MMDDYYYY".
+
+**Solusi:**
+
+Jalankan command `zip` dengan diikuti `-P` untuk memberi password dengan diikuti dengan `date +"%m%d%Y"` untuk mengatur password sesuai dengan format yang diminta. Kemudian diikuti dengan `-r` dan `-m` untuk mengompres semua file dan memindahkannya kedalam zip dengan nama `Koleksi.zip` dan masukkan semua folder yang memiliki awalan nama `Kucing` atau `Kelinci` 
+
+```
+#!/bin/bash
+
+zip -P `date +"%m%d%Y"` -r -m  Koleksi.zip ./Kucing* ./Kelinci*
+```
+
+### Soal 3e
+Diminta untuk zip semua koleksi gambar secara otomatis setiap hari senin hingga jumat, dari jam 7 pagi sampai 6 sore, lalu unzip semua koleksi gambar pada selain waktu tersebut dan tidak ada file zip sama sekali.
+
+**Solusi:**
+
+Lakukan zip pada semua folder gambar dengan awalan `Kucing` dan `Kelinci` dengan menggunakan command yang sama seperti pada poin soal sebelumnya dan jalankan secara otomatis dengan menggunakan crontab dengan mengaturnya agar berjalan setiap hari senin hingga jumat pukul 7 pagi.
+
+```
+0 7 * * 1-5 zip -P `date +"%m%d%Y"` -r -m Koleksi.zip ./Kucing* ./Kelinci*
+```
+
+Kemudian, unzip file `Koleksi.sip` dengan memasukkan password saat ini dan jalankan secara otomatis dengan menggunakan crontab dengan mengaturnya agar berjalan setiap hari senin hingga jumat pukul 6 sore(18) dan hapus file `Koleksi.zip`.
+
+```
+0 18 * * 1-5 unzip -P `date +"%m%d%Y"` Koleksi.zip && rm Koleksi.zip
+```
