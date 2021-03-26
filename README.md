@@ -77,6 +77,34 @@ kemudian tampilkan datanya
 ```
 sorteduserlog=$(echo $userlog | sort | uniq | sort)
 ```
+### soal 1d
+Semua informasi yang didapatkan pada poin b dituliskan ke dalam file error_message.csv dengan header Error,Count yang kemudian diikuti oleh daftar pesan error dan jumlah kemunculannya diurutkan berdasarkan jumlah kemunculan pesan error dari yang terbanyak.
+
+**Solusi:**
+```
+printf "Error,Count\n" >> "error_message.csv"
+echo "$sortederrorlog" | grep -oP "^ *[0-9]+ \K.*" | while read -r line
+do
+ count=$(grep "$line" "$input" | wc -l)
+ printf "$line,$count\n"
+done >> "error_message.csv"
+```
+
+### soal 1e
+Semua informasi yang didapatkan pada poin c dituliskan ke dalam file user_statistic.csv dengan header Username,INFO,ERROR diurutkan berdasarkan username secara ascending.
+
+**Solusi:**
+```
+error=$(grep "ERROR" "$input") 
+info=$(grep "INFO" "$input")
+printf "Username,INFO,ERROR\n" >> "user_statistic.csv"
+echo "$sorteduserlog" | while read -r line
+do
+ errcount=$(echo "$error" | grep -w "$line" | wc -l)
+ infocount=$(echo "$info" | grep -w "$line" | wc -l)
+ printf "$line,$infocount,$errcount\n"
+done >> "user_statistic.csv"
+```
 
 ## Soal 2
 Pendiri dan manager dari TokoShiSop meminta agar dicarikan beberapa kesimpulan dari data penjualan “Laporan-TokoShiSop.tsv”.
