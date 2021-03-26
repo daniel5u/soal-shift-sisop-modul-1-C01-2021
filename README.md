@@ -16,7 +16,11 @@ Diminta untuk mencari Row ID dan profit percentage terbesar dan jika profit perc
 
 <img src="https://render.githubusercontent.com/render/math?math=cost price = sales - profit">
 
-*Solusi:*
+**Solusi:**
+Pertama, dibuatkan fungsi untuk menghitung profit percentage, cost price, dan profit ratio.
+Rumus profit ratio:
+
+<img src="https://render.githubusercontent.com/render/math?math=profit ratio = (profit \div cost price)">
 ### Soal 2b
 ### Soal 2c
 ### Soal 2d
