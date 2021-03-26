@@ -90,7 +90,7 @@ Diminta mencari nama customer pada transaksi tahun 2017 di kota Albuquerque.
 
 **Solusi:**
 
-Pertama, pisahkan tanggal, bulan, dan tahun menggunakan fungsi split() dan hasilnya disimpan ke dalam array `date`. Selanjutnya, periksa apakah tahun (`date[3]`) adalah 17 dan apakah kotanya adalah "Albuquerque". Jika kedua syarat tersebut terpenuhi, tambahkan nilai dalam array `customers` di indeks `customer name` dengan satu.
+Pertama, pisahkan tanggal, bulan, dan tahun menggunakan fungsi split() dan hasilnya disimpan ke dalam array `date`. Selanjutnya, periksa apakah tahun (`date[3]`) adalah 17 dan apakah kotanya adalah "Albuquerque". Jika kedua syarat tersebut terpenuhi, tambahkan nilai dalam array `customers` di indeks `customer name` dengan satu. Indeks `customer name` adalah string nama customer.
 
 ```
 #split tanggal dengan delimiter "-" dan menyimpan hasilnya dalam array "date"
@@ -111,6 +111,42 @@ for(customer in customers) {
 ```
 
 ### Soal 2c
+Diminta mencari segment customer dan jumlah transaksinya yang paling sedikit.
+
+**Solusi:**
+
+Pertama, inisialisasi variabel yang akan digunakan dalam block BEGIN.
+
+```
+flag_ts = 0;
+min_ts = 0;
+```
+
+Selanjutnya, hitung jumlah transaksi dari setiap segment dengan cara menambahkan nilai dalam array `transactions` di indeks `segment` dengan satu. Indeks `segment` adalah string "Home Office", "Customer", dan "Corporate".
+
+```
+#menghitung jumlah transaksi segment 
+transactions[$8] += 1;
+```
+
+Terakhir, cari jumlah transaksi yang paling sedikit dalam array `transactions`. Nilai awal yang digunakan adalah data yang dapat diakses saat iterasi pertama dan `flag_ts` berfungsi sebagai penanda bahwa data awal tersebut sudah diambil. Untuk setiap data, jika terdapat jumlah transaksi yang lebih kecil dari nilai `min_ts`, maka perbarui `min_ts` dengan jumlah transaksi tersebut dan perbarui `segment` dengan nama segment yang memiliki jumlah transaksi tersebut. Setelah perulangan selesai, cetak string `segment` dan nilai `min_ts`.
+
+```
+#mencari jumlah transaksi segment yang paling sedikit
+for(i in transactions) {
+    if(flag_ts == 0) {
+        min_ts = transactions[i];
+        segment = i;
+        flag_ts = 1;
+    }
+    else if(min_ts > transactions[i]) {
+        min_ts = transactions[i];
+        segment = i;
+    }
+}
+printf("Tipe segmen customer yang penjualannya paling sedikit adalah %s dengan %d transaksi.\n", segment, min_ts);
+```
+
 ### Soal 2d
 ### Soal 2e
 ## Soal 3
