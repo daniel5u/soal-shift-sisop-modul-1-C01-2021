@@ -46,14 +46,14 @@ Rumus profit ratio:
 
 <img src="https://render.githubusercontent.com/render/math?math=profit ratio = (profit \div cost price)">
 
-Kedua, inisialisasi variabel yang akan digunakan.
+Kedua, inisialisasi variabel yang akan digunakan dalam block BEGIN.
 
 ```
     max_pr = 0;
     max_row_id = 0;
 ```
 
-Ketiga, untuk setiap baris yang digunakan, hitung cost price. Jika cost price tersebut tidak bernilai nol, maka cari profit ratio terbesar. Untuk mencari profit ratio terbesar, profit ratio dari baris ke-2 digunakan sebagai nilai awal yang disimpan di variabel `max_pr`. Selanjutnya, jika ditemukan profit ratio yang lebih besar dari `max_pr`, maka perbarui nilai `max_pr` dengan profit ratio tersebut dan simpan Row IDnya ke `max_row_id`. Terakhir, jika ditemukan profit ratio yang terbesar lebih dari satu, maka perbarui nilai `max_row_id` dengan Row IDnya.
+Ketiga, untuk setiap baris yang digunakan, hitung cost price. Jika cost price tersebut tidak bernilai nol, maka cari profit ratio terbesar. Untuk mencari profit ratio terbesar, profit ratio dari baris ke-2 digunakan sebagai nilai awal yang disimpan di variabel `max_pr` dan `max_row_id` diberi nilai Row ID baris ke-2. Selanjutnya, jika ditemukan profit ratio yang lebih besar dari `max_pr`, maka perbarui nilai `max_pr` dengan profit ratio tersebut dan simpan Row IDnya ke `max_row_id`. Terakhir, jika ditemukan profit ratio yang terbesar lebih dari satu, maka perbarui nilai `max_row_id` dengan Row IDnya.
 
 ```
 #menghitung cost price
@@ -78,6 +78,12 @@ if(curr_cost_price != 0) {
 }
 ```
 
+Terakhir, dalam block END, hitung profit percentage menggunakan fungsi `profit_percentage()` dengan argumen `max_pr`. Setelah itu, cetak profit percentage terbesar dan Row IDnya.
+
+```
+    printf("Transaksi terakhir dengan profit percentage terbesar yaitu %d dengan persentase %d%%.\n", 
+    max_row_id, profit_percentage(max_pr));
+```
 
 ### Soal 2b
 ### Soal 2c
