@@ -12,12 +12,28 @@ Agar file “Laporan-TokoShiSop.tsv” dapat diolah menggunakan awk, field separ
 ### Soal 2a
 Diminta untuk mencari Row ID dan profit percentage terbesar dan jika profit percentage terbesar lebih dari satu, maka gunakan Row ID yang terbesar. Rumus:
 
-<img src="https://render.githubusercontent.com/render/math?math=profit  percentage = (profit \div cost price) \times 100">
+<img src="https://render.githubusercontent.com/render/math?math=profit percentage = (profit \div cost price) \times 100">
 
 <img src="https://render.githubusercontent.com/render/math?math=cost price = sales - profit">
 
 **Solusi:**
-Pertama, dibuatkan fungsi untuk menghitung profit percentage, cost price, dan profit ratio.
+Pertama, dibuatkan fungsi untuk menghitung profit percentage, cost price, dan profit ratio seperti berikut.
+
+```
+#fungsi untuk menghitung cost price
+function cost_price(s, p) {
+    return (s - p);
+}
+#fungsi untuk menghitung profit ratio
+function profit_ratio(p, cp) {
+    return (p / cp);
+}
+#fungsi untuk menghitung profit percentage
+function profit_percentage(pr) {
+    return (pr * 100);
+}
+```
+
 Rumus profit ratio:
 
 <img src="https://render.githubusercontent.com/render/math?math=profit ratio = (profit \div cost price)">
