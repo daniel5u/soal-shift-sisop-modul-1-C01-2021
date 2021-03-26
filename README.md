@@ -5,6 +5,75 @@
 * Dwinanda Bagoes Ansori  05111940000010 (mengerjakan soal nomor 3)
 
 ## Soal 1
+Ryujin menjadi IT Support di perusahaan Bukapedia.Ia diberi 2 tugas untuk membuat laporan harian aplikasi internal perusahaan yang bernama ticky.Terdapat 2 laporan yang harus dia buat, yaitu laporan daftar peringkat pesan error terbanyak yang dibuat oleh ticky dan laporan penggunaan user pada aplikasi ticky.
+dari soal tersebut ditemukan solusinya yaitu kita harus mengakses file syslog.log terlebih dahulu untuk mendapatkan data errornya kemudian kita read datanya menggunakan cat setelah itu kita gunakan regex untuk sortir datanya.
+
+### Soal 1a
+Diminta ,mengumpulkan informasi dari log aplikasi yang terdapat pada file syslog.log. Informasi yang diperlukan antara lain: jenis log (ERROR/INFO), pesan log, dan username pada setiap baris lognya. 
+**Solusi:**
+Pertama, buat file bash yang berisi command untuk menjalankan file bash dari soal
+Kemudian kita input syslog untuk mengakses data 
+Kita dapatkan data error dengan grep command setelah itu kita read data dari grep tersebut dengan menggunakan fungsi cat dan regex
+lalu terakhir kita dapatkan hasilnya
+
+#!/bin/bash
+input="syslog.log"
+#cut -d " " -f 1-3 $input
+#grep -oE "(ERROR)(.*)\(.*\)" syslog.log |sort|uniq|cut -d " " -f 2-  
+#input3=$(cat syslog.log)
+regex="(ERROR |INFO )(.*) \((.*)\)"
+regex2="(ERROR )(.*) \((.*)\)"
+#grep -oP "$regex" "$input"
+
+### Soal 1b
+Kemudian, Ryujin harus menampilkan semua pesan error yang muncul beserta jumlah kemunculannya.
+
+**Solusi:**
+
+Pertama, dibuatkan fungsi untuk mengakses data error
+get_error_logs(){
+ local s=$1 regex=$2 
+ while [[ $s =~ $regex ]]; do
+  printf "${BASH_REMATCH[2]}\n"
+  s=${s#*"${BASH_REMATCH[0]}"}
+ done
+}
+
+Kemudian Dapatkan semua pesan error dan sorting kemudian munculkan pesan
+
+errorlogs=$(
+while read -r line
+do
+ get_error_logs "$line" "$regex2"
+done < "$input")
+sortederrorlogs=$(echo $errorlogs | sort | uniq -c | sort -nr | tr -s [:space:])
+#echo $sortederrorlogs
+
+### Soal 1c
+Ryujin juga harus dapat menampilkan jumlah kemunculan log ERROR dan INFO untuk setiap user-nya.
+
+**Solusi:**
+Pertama kita buat fungsi untuk menampilkan error log untuk setiap user
+
+get_user_log(){
+ local s=$1 regex=$2
+ 
+ Kemudian kita iterasikan menggunakan while
+ 
+ while [[ $s =~ $regex ]]; do
+  printf "${BASH_REMATCH[3]}\n"
+  s=${s#*"${BASH_REMATCH[0]}"}
+ done
+}
+userlog=$(
+while read -r line
+do
+ get_user_log "$line" "$regex"
+done < "$input")
+
+kemudian tampilkan datanya
+
+sorteduserlog=$(echo $userlog | sort | uniq | sort)
 
 ## Soal 2
 Pendiri dan manager dari TokoShiSop meminta agar dicarikan beberapa kesimpulan dari data penjualan “Laporan-TokoShiSop.tsv”.
