@@ -11,9 +11,9 @@ Pendiri dan manager dari TokoShiSop meminta agar dicarikan beberapa kesimpulan d
 Agar file “Laporan-TokoShiSop.tsv” dapat diolah menggunakan awk, field separator yang digunakan adalah `\t`. Maka dari itu, digunakan command `awk -F '\t'`. Selanjutnya, untuk setiap subsoal (2a sampai 2d), baris yang digunakan adalah baris ke-2 sampai baris terakhir karena baris ke-1 hanya berisi header, maka digunakan statment if seperti berikut.
 
 ```
-    if(NR > 1) {
-        ...
-    }
+if(NR > 1) {
+    ...
+}
 ```
 
 ### Soal 2a
@@ -49,8 +49,8 @@ Rumus profit ratio:
 Kedua, inisialisasi variabel yang akan digunakan dalam block BEGIN.
 
 ```
-    max_pr = 0;
-    max_row_id = 0;
+max_pr = 0;
+max_row_id = 0;
 ```
 
 Ketiga, untuk setiap baris yang digunakan, hitung cost price. Jika cost price tersebut tidak bernilai nol, maka cari profit ratio terbesar. Untuk mencari profit ratio terbesar, profit ratio dari baris ke-2 digunakan sebagai nilai awal yang disimpan di variabel `max_pr` dan `max_row_id` diberi nilai Row ID baris ke-2. Selanjutnya, jika ditemukan profit ratio yang lebih besar dari `max_pr`, maka perbarui nilai `max_pr` dengan profit ratio tersebut dan simpan Row IDnya ke `max_row_id`. Terakhir, jika ditemukan profit ratio yang terbesar lebih dari satu, maka perbarui nilai `max_row_id` dengan Row IDnya.
