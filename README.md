@@ -4,6 +4,9 @@
 * Daniel Sugianto         05111940000075 (mengerjakan soal nomor 2)
 * Dwinanda Bagoes Ansori  05111940000010 (mengerjakan soal nomor 3)
 
+## Soal 1
+
 ## Soal 2
 Pendiri dan manager dari TokoShiSop meminta agar dicarikan beberapa kesimpulan dari data penjualan “Laporan-TokoShiSop.tsv”.
 
+## Soal 3
