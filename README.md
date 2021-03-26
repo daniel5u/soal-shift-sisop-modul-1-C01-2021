@@ -31,6 +31,7 @@ Kemudian, Ryujin harus menampilkan semua pesan error yang muncul beserta jumlah 
 **Solusi:**
 
 Pertama, dibuatkan fungsi untuk mengakses data error
+...
 get_error_logs(){
  local s=$1 regex=$2 
  while [[ $s =~ $regex ]]; do
@@ -38,7 +39,7 @@ get_error_logs(){
   s=${s#*"${BASH_REMATCH[0]}"}
  done
 }
-
+...
 Kemudian Dapatkan semua pesan error dan sorting kemudian munculkan pesan
 
 errorlogs=$(
