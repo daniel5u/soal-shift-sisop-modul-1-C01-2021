@@ -8,8 +8,9 @@
 
 ## Soal 2
 Pendiri dan manager dari TokoShiSop meminta agar dicarikan beberapa kesimpulan dari data penjualan “Laporan-TokoShiSop.tsv”.
+Agar file “Laporan-TokoShiSop.tsv” dapat diolah, field separator yang digunakan adalah '\t'
 ### Soal 2a
-Diminta untuk mencari Row ID dan profit percentage terbesar dan jika profit percentage terbesar lebih dari satu, maka gunakan Row ID yang terbesar. Rumus profit percentage:
+Diminta untuk mencari Row ID dan profit percentage terbesar dan jika profit percentage terbesar lebih dari satu, maka gunakan Row ID yang terbesar. Rumus:
 
 <img src="https://render.githubusercontent.com/render/math?math=profit percentage = (profit \div cost price) \times 100">
 
