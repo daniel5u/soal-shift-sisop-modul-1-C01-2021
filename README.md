@@ -5,11 +5,6 @@
 * Dwinanda Bagoes Ansori  05111940000010 (mengerjakan soal nomor 3)
 
 ## Soal 1
-Ryujin sebagai IT Support Perusahaan Bukapedia diminta untuk membuat 2 laporan harian untuk aplikasi internal perusahaan yang bernama ticky, yaitu daftar peringkat pesan error terbanyak yang dibuat oleh ticky dan laporan penggunaan user pada aplikasi ticky.Langkah pertama yang harus dilakukan yaitu melihat syslog.log kemudian di read menggunakan $(cat syslog.log) kemudian dilakukan loop/iterasi
-
-### Soal 1a
-Diminta Mengumpulkan informasi dari log aplikasi yang terdapat pada file syslog.log. Informasi yang diperlukan antara lain: jenis log (ERROR/INFO), pesan log, dan username pada setiap baris lognya.
-
 
 ## Soal 2
 Pendiri dan manager dari TokoShiSop meminta agar dicarikan beberapa kesimpulan dari data penjualan “Laporan-TokoShiSop.tsv”.
@@ -206,3 +201,79 @@ Diminta untuk mengunduh 23 gambar dari "https://loremflickr.com/320/240/kitten" 
 
 **Solusi:**
 
+Pertama, inisialisasi variabel `N` dan `sama`. Variabel `N` digunakan untuk membatasi jumlah file dan juga digunakan untuk memberi nama pada file gambar. Sedangkan variabel `sama` digunakan untuk menghitung dan menyimpan berapa jumlah file yang sama pada variabel tersebut.
+
+```
+N=23
+sama=0
+```
+
+Selanjutnya, dilakukan perulangan sebanyak `N` kali dan melakukan proses pengunduhan dan pencatatan log di file Foto.log. Apabila `i` kurang dari 10, maka file diberi nama Koleksi_0i. Sedangkan apabila `i` lebih dari sama dengan 10, maka file diberi nama Koleksi_i.
+
+```
+for((i=1;i<=N;i=i+1))
+do
+	if ((i<10))
+	then
+		wget -O Koleksi_0$i.jpg -a Foto.log https://loremflickr.com/320/240/kitten
+		...
+	else
+		wget -O Koleksi_$i.jpg -a Foto.log https://loremflickr.com/320/240/kitten
+		...
+	fi
+done
+```
+
+Kemudian, dilakukan pengecekkan apakah gambar yang terakhir diunduh sama dengan salah satu dari gambar-gambar yang telah diundah sebelumnya. Pengecekkan dilakukan dengan cara membandingkan dua file gambar dan mengecek apakah command `cmp file.jpg file2.jpg` berjalan dengan semestinya (tidak ada error). Jika command tersebut tidak terjadi error maka kedua file gambar yang dibandingkan terbukti sama dan command `x=$?` akan menghasilkan nilai 0(nol).
+
+Apabila `i` < 10
+
+```
+...
+for((j=1;j<i;j=j+1))
+do
+	s=$(cmp "./Koleksi_0$j.jpg" "./Koleksi_0$i.jpg")
+	x=$?
+	if [ $x -eq 0 ]
+	then
+		sama=$((sama+1))
+		rm "./Koleksi_0$i.jpg"
+		N=$((N-1))
+		i=$((i-1))
+		break
+	fi
+done
+...
+```
+
+Apabila `i` >= 10 : 
+```
+...
+for((j=1;j<i;j=j+1))
+do
+	if((j<10))
+	then
+		s=$(cmp "./Koleksi_0$j.jpg" "./Koleksi_$i.jpg")
+		x=$?
+		if [ $x -eq 0 ]
+		then
+			sama=$((sama+1))
+			rm "./Koleksi_$i.jpg"
+			N=$((N-1))
+			i=$((i-1))
+			break
+		fi
+	else
+		s=$(cmp "./Koleksi_$j.jpg" "./Koleksi_$i.jpg")
+		x=$?
+		if [ $x -eq 0 ]
+		then
+			sama=$((sama+1))
+			rm "./Koleksi_$i.jpg"
+			N=$((N-1))
+			i=$((i-1))
+			break
+		fi
+	fi
+done
+```
