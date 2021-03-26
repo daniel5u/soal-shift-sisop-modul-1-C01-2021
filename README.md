@@ -14,6 +14,9 @@ Diminta untuk mencari Row ID dan profit percentage terbesar dan jika profit perc
 <img src="https://render.githubusercontent.com/render/math?math=profit percentage = (profit \div cost price) \times 100">
 
 
+<img src="https://render.githubusercontent.com/render/math?math=cost price = sales - profit">
+
+
 ### Soal 2b
 ### Soal 2c
 ### Soal 2d
