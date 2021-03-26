@@ -277,3 +277,28 @@ do
 	fi
 done
 ```
+
+### Soal 3b
+Diminta untuk menjalankan script pada soal 3a secara otomatis sehari sekali pada jam 8 malam untuk tanggal-tanggal tertentu, yaitu dari tanggal 1 tujuh hari sekali dan dari tanggal 2 empat hari sekali. Kemudian, file gambar yang sudah diunduh beserta log-nya dipindah ke folder dengan nama tanggal unduh dengan format "DD-MM-YYYY".
+
+**Solusi:**
+
+Pertama, buat file bash yang berisi command untuk menjalankan file bash dari soal 3a. Kemudian buat folder atau directory bernama tanggal unduh. Lalu pindahkan semua file gambar dan file log ke dalam folder yang telah dibuat.
+
+```
+#!/bin/bash
+
+bash ./soal3a.sh
+now=$(date +"%d-%m-%Y")
+mkdir "$now"
+mv ./Koleksi_* "./$now/"
+mv ./Foto.log "./$now/"
+```
+
+Lalu jalankan command di atas secara otomatis menggunakan crontab seperti yang tertulis di bawah ini
+
+```
+0 20 1-31/7,2-31/4 * * /bin/bash /home/dwinanda/SISOP/Modul1/soal3b.sh
+```
+
+### Soal 3c
