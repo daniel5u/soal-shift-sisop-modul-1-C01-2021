@@ -122,7 +122,7 @@ flag_ts = 0;
 min_ts = 0;
 ```
 
-Selanjutnya, hitung jumlah transaksi dari setiap segment dengan cara menambahkan nilai dalam array `transactions` di indeks `segment` dengan satu. Indeks `segment` adalah string "Home Office", "Customer", dan "Corporate".
+Selanjutnya, hitung jumlah transaksi dari setiap segment. Untuk setiap baris yang digunakan, tambahkan nilai dalam array `transactions` di indeks `segment` dengan satu. Indeks `segment` adalah string "Home Office", "Customer", atau "Corporate".
 
 ```
 #menghitung jumlah transaksi segment 
@@ -148,5 +148,51 @@ printf("Tipe segmen customer yang penjualannya paling sedikit adalah %s dengan %
 ```
 
 ### Soal 2d
+Diminta mencari wilayah bagian (region) yang memiliki total keuntungan (profit) paling sedikit dan total keuntungan wilayah tersebut.
+
+**Solusi:**
+
+Pertama, inisialisasi variabel yang akan digunakan dalam block BEGIN.
+
+```
+flag_p = 0;
+min_p = 0;
+```
+
+Selanjutnya, hitung total profit dari setiap region. Untuk setiap baris yang digunakan, tambahkan nilai dalam array `profits` di indeks `region` dengan nilai `profit` yang berada di field ke-21. Indeks `region` adalah string "Central", "East", "South", atau "West".
+
+```
+#menghitung total profit region
+profits[$13] += $21;
+```
+
+Terakhir, cari total profit yang paling sedikit dalam array `profits`. Nilai awal yang digunakan adalah data yang dapat diakses saat iterasi pertama dan `flag_p` berfungsi sebagai penanda bahwa data awal tersebut sudah diambil. Untuk setiap data, jika terdapat total profit yang lebih kecil dari nilai `min_p`, maka perbarui `min_p` dengan total profit tersebut dan perbarui `region` dengan nama region yang memiliki total profit tersebut. Setelah perulangan selesai, cetak string `region` dan nilai `min_p`.
+
+```
+#mencari total keuntungan wilayah yang paling sedikit
+for(i in profits) {
+    if(flag_p == 0) {
+        min_p = profits[i];
+        region = i;
+        flag_p = 1;
+    }
+    else if(min_p > profits[i]) {
+        min_p = profits[i];
+        region = i;
+    }
+}
+printf("Wilayah bagian (region) yang memiliki total keuntungan (profit) yang paling sedikit adalah %s dengan total keuntungan %f\n", region, min_p);
+```
+
 ### Soal 2e
+Diminta mengeluarkan hasil dari soal 2a sampai soal 2d dalam satu file yang bernama “hasil.txt”.
+
+**Solusi:**
+
+Pada bagian akhir script diberi
+
+```
+> hasil.txt
+```
+
 ## Soal 3
