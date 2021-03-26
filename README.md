@@ -8,7 +8,14 @@
 
 ## Soal 2
 Pendiri dan manager dari TokoShiSop meminta agar dicarikan beberapa kesimpulan dari data penjualan “Laporan-TokoShiSop.tsv”.
-Agar file “Laporan-TokoShiSop.tsv” dapat diolah menggunakan awk, field separator yang digunakan adalah `\t`. Maka dari itu, digunakan command `awk -F '\t'`.
+Agar file “Laporan-TokoShiSop.tsv” dapat diolah menggunakan awk, field separator yang digunakan adalah `\t`. Maka dari itu, digunakan command `awk -F '\t'`. Selanjutnya, untuk setiap subsoal (2a sampai 2d), baris yang digunakan adalah baris ke-2 sampai baris terakhir karena baris ke-1 hanya berisi header, maka digunakan statment if seperti berikut.
+
+```
+    if(NR > 1) {
+        ...
+    }
+```
+
 ### Soal 2a
 Diminta untuk mencari Row ID dan profit percentage terbesar dan jika profit percentage terbesar lebih dari satu, maka gunakan Row ID yang terbesar. Rumus:
 
@@ -17,6 +24,7 @@ Diminta untuk mencari Row ID dan profit percentage terbesar dan jika profit perc
 <img src="https://render.githubusercontent.com/render/math?math=cost price = sales - profit">
 
 **Solusi:**
+
 Pertama, dibuatkan fungsi untuk menghitung profit percentage, cost price, dan profit ratio seperti berikut.
 
 ```
@@ -37,6 +45,32 @@ function profit_percentage(pr) {
 Rumus profit ratio:
 
 <img src="https://render.githubusercontent.com/render/math?math=profit ratio = (profit \div cost price)">
+
+Kedua, baris yang akan digunakan adalah 
+
+```
+#menghitung cost price
+curr_cost_price = cost_price($18, $21);
+#menghindari pembagian dengan 0
+if(curr_cost_price != 0) {
+    #mencari profit ratio terbesar
+    if(NR == 2) {
+        max_pr = profit_ratio($21, curr_cost_price);
+        max_row_id = $1;
+    }
+    else {
+        curr_pr = profit_ratio($21, curr_cost_price);
+        if(max_pr < curr_pr) {
+            max_pr = curr_pr;
+            max_row_id = $1;
+        }
+        else if(max_pr == curr_pr) {
+            max_row_id = $1;
+        }
+    }
+}
+```
+
 
 ### Soal 2b
 ### Soal 2c
