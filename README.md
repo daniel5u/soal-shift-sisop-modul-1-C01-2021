@@ -15,7 +15,7 @@ Pertama, buat file bash yang berisi command untuk menjalankan file bash dari soa
 Kemudian kita input syslog untuk mengakses data 
 Kita dapatkan data error dengan grep command setelah itu kita read data dari grep tersebut dengan menggunakan fungsi cat dan regex
 lalu terakhir kita dapatkan hasilnya
-
+```
 #!/bin/bash
 input="syslog.log"
 #cut -d " " -f 1-3 $input
@@ -24,6 +24,7 @@ input="syslog.log"
 regex="(ERROR |INFO )(.*) \((.*)\)"
 regex2="(ERROR )(.*) \((.*)\)"
 #grep -oP "$regex" "$input"
+```
 
 ### Soal 1b
 Kemudian, Ryujin harus menampilkan semua pesan error yang muncul beserta jumlah kemunculannya.
@@ -31,7 +32,7 @@ Kemudian, Ryujin harus menampilkan semua pesan error yang muncul beserta jumlah 
 **Solusi:**
 
 Pertama, dibuatkan fungsi untuk mengakses data error
-...
+```
 get_error_logs(){
  local s=$1 regex=$2 
  while [[ $s =~ $regex ]]; do
@@ -39,9 +40,9 @@ get_error_logs(){
   s=${s#*"${BASH_REMATCH[0]}"}
  done
 }
-...
+```
 Kemudian Dapatkan semua pesan error dan sorting kemudian munculkan pesan
-
+```
 errorlogs=$(
 while read -r line
 do
@@ -49,18 +50,18 @@ do
 done < "$input")
 sortederrorlogs=$(echo $errorlogs | sort | uniq -c | sort -nr | tr -s [:space:])
 #echo $sortederrorlogs
-
+```
 ### Soal 1c
 Ryujin juga harus dapat menampilkan jumlah kemunculan log ERROR dan INFO untuk setiap user-nya.
 
 **Solusi:**
 Pertama kita buat fungsi untuk menampilkan error log untuk setiap user
-
+```
 get_user_log(){
  local s=$1 regex=$2
- 
+ ```
  Kemudian kita iterasikan menggunakan while
- 
+ ```
  while [[ $s =~ $regex ]]; do
   printf "${BASH_REMATCH[3]}\n"
   s=${s#*"${BASH_REMATCH[0]}"}
@@ -71,10 +72,11 @@ while read -r line
 do
  get_user_log "$line" "$regex"
 done < "$input")
-
+```
 kemudian tampilkan datanya
-
+```
 sorteduserlog=$(echo $userlog | sort | uniq | sort)
+```
 
 ## Soal 2
 Pendiri dan manager dari TokoShiSop meminta agar dicarikan beberapa kesimpulan dari data penjualan “Laporan-TokoShiSop.tsv”.
