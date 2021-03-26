@@ -8,5 +8,11 @@
 
 ## Soal 2
 Pendiri dan manager dari TokoShiSop meminta agar dicarikan beberapa kesimpulan dari data penjualan “Laporan-TokoShiSop.tsv”.
-
+### Soal 2a
+Diminta untuk mencari Row ID dan profit percentage terbesar dan jika profit percentage terbesar lebih dari satu, maka gunakan Row ID yang terbesar. Rumus profit percentage:
+$profit percentage = (profit / cost price) \times 100$
+### Soal 2b
+### Soal 2c
+### Soal 2d
+### Soal 2e
 ## Soal 3
