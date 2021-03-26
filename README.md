@@ -189,7 +189,7 @@ Diminta mengeluarkan hasil dari soal 2a sampai soal 2d dalam satu file yang bern
 
 **Solusi:**
 
-Pada bagian akhir script diberi
+Pada bagian akhir script diberi redirection.
 
 ```
 > hasil.txt
