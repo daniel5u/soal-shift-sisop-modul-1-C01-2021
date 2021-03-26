@@ -5,6 +5,11 @@
 * Dwinanda Bagoes Ansori  05111940000010 (mengerjakan soal nomor 3)
 
 ## Soal 1
+Ryujin sebagai IT Support Perusahaan Bukapedia diminta untuk membuat 2 laporan harian untuk aplikasi internal perusahaan yang bernama ticky, yaitu daftar peringkat pesan error terbanyak yang dibuat oleh ticky dan laporan penggunaan user pada aplikasi ticky.Langkah pertama yang harus dilakukan yaitu melihat syslog.log kemudian di read menggunakan $(cat syslog.log) kemudian dilakukan loop/iterasi
+
+### Soal 1a
+Diminta Mengumpulkan informasi dari log aplikasi yang terdapat pada file syslog.log. Informasi yang diperlukan antara lain: jenis log (ERROR/INFO), pesan log, dan username pada setiap baris lognya.
+
 
 ## Soal 2
 Pendiri dan manager dari TokoShiSop meminta agar dicarikan beberapa kesimpulan dari data penjualan “Laporan-TokoShiSop.tsv”.
@@ -200,27 +205,4 @@ Pada bagian akhir script diberi redirection.
 Diminta untuk mengunduh 23 gambar dari "https://loremflickr.com/320/240/kitten" serta menyimpan log-nya ke file "Foto.log". Apabila mengunduh gambar yang sama, maka gambar tersebut dihapus tanpa harus mengganti dengan gambar yang baru. Kemudian menyimpan gambar-gambar tersebut dengan format nama “Koleksi_XX” dengan nomor yang berurutan tanpa ada nomor yang hilang.
 
 **Solusi:**
-
-Pertama, inisialisasi variabel `N` dan `sama`. Variabel `N` digunakan untuk membatasi jumlah file dan juga digunakan untuk memberi nama pada file gambar. Sedangkan variabel `sama` digunakan untuk menghitung dan menyimpan berapa jumlah file yang sama pada variabel tersebut.
-
-```
-N=23
-sama=0
-```
-
-Selanjutnya, dilakukan perulangan sebanyak `N` kali dan melakukan proses pengunduhan dan pencatatan log di file Foto.log. Apabila `i` kurang dari 10, maka file diberi nama Koleksi_0i. Sedangkan apabila `i` lebih dari sama dengan 10, maka file diberi nama Koleksi_i.
-
-```
-for((i=1;i<=N;i=i+1))
-do
-	if ((i<10))
-	then
-		wget -O Koleksi_0$i.jpg -a Foto.log https://loremflickr.com/320/240/kitten
-		...
-	else
-		wget -O Koleksi_$i.jpg -a Foto.log https://loremflickr.com/320/240/kitten
-		...
-	fi
-done
-```
 
