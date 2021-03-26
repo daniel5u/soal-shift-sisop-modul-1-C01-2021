@@ -46,7 +46,14 @@ Rumus profit ratio:
 
 <img src="https://render.githubusercontent.com/render/math?math=profit ratio = (profit \div cost price)">
 
-Kedua, baris yang akan digunakan adalah 
+Kedua, inisialisasi variabel yang akan digunakan.
+
+```
+    max_pr = 0;
+    max_row_id = 0;
+```
+
+Ketiga, untuk setiap baris yang digunakan, hitung `cost price`. Jika `cost price` tersebut tidak bernilai nol, maka cari `profit ratio` terbesar. Untuk mencari `profit ratio` terbesar, `profit ratio` dari baris ke-2 digunakan sebagai nilai awal yang disimpan di variabel `max_pr`. Selanjutnya
 
 ```
 #menghitung cost price
