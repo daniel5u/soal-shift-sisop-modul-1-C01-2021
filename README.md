@@ -201,3 +201,26 @@ Diminta untuk mengunduh 23 gambar dari "https://loremflickr.com/320/240/kitten" 
 
 **Solusi:**
 
+Pertama, inisialisasi variabel `N` dan `sama`. Variabel `N` digunakan untuk membatasi jumlah file dan juga digunakan untuk memberi nama pada file gambar. Sedangkan variabel `sama` digunakan untuk menghitung dan menyimpan berapa jumlah file yang sama pada variabel tersebut.
+
+```
+N=23
+sama=0
+```
+
+Selanjutnya, dilakukan perulangan sebanyak `N` kali dan melakukan proses pengunduhan dan pencatatan log di file Foto.log. Apabila `i` kurang dari 10, maka file diberi nama Koleksi_0i. Sedangkan apabila `i` lebih dari sama dengan 10, maka file diberi nama Koleksi_i.
+
+```
+for((i=1;i<=N;i=i+1))
+do
+	if ((i<10))
+	then
+		wget -O Koleksi_0$i.jpg -a Foto.log https://loremflickr.com/320/240/kitten
+		...
+	else
+		wget -O Koleksi_$i.jpg -a Foto.log https://loremflickr.com/320/240/kitten
+		...
+	fi
+done
+```
+
