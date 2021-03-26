@@ -297,6 +297,8 @@ Pada bagian akhir script diberi redirection.
 
 
 ## Soal 3
+Kuuhaku adalah orang yang sangat suka mengoleksi foto-foto digital, namun Kuuhaku juga merupakan seorang yang pemalas sehingga ia tidak ingin repot-repot mencari foto, selain itu ia juga seorang pemalu, sehingga ia tidak ingin ada orang yang melihat koleksinya tersebut, sayangnya ia memiliki teman bernama Steven yang memiliki rasa kepo yang luar biasa. Kuuhaku pun memiliki ide agar Steven tidak bisa melihat koleksinya, serta untuk mempermudah hidupnya.
+
 ### Soal 3a
 Diminta untuk mengunduh 23 gambar dari "https://loremflickr.com/320/240/kitten" serta menyimpan log-nya ke file "Foto.log". Apabila mengunduh gambar yang sama, maka gambar tersebut dihapus tanpa harus mengganti dengan gambar yang baru. Kemudian menyimpan gambar-gambar tersebut dengan format nama “Koleksi_XX” dengan nomor yang berurutan tanpa ada nomor yang hilang.
 
