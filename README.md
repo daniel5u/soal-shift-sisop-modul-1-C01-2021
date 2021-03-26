@@ -21,6 +21,7 @@ Pertama, dibuatkan fungsi untuk menghitung profit percentage, cost price, dan pr
 Rumus profit ratio:
 
 <img src="https://render.githubusercontent.com/render/math?math=profit ratio = (profit \div cost price)">
+
 ### Soal 2b
 ### Soal 2c
 ### Soal 2d
