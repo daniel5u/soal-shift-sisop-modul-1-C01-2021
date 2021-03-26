@@ -23,7 +23,7 @@
 # $20 = Discount
 # $21 = Profit
 
-#mengganti field separator menjadi '\t'
+#field separator yang digunakan adalah '\t'
 awk -F '\t' '
 #2a
 #fungsi untuk menghitung cost price
