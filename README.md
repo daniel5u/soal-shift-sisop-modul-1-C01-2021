@@ -86,6 +86,30 @@ max_row_id, profit_percentage(max_pr));
 ```
 
 ### Soal 2b
+Diminta mencari nama customer pada transaksi tahun 2017 di kota Albuquerque.
+
+**Solusi:**
+
+Pertama, pisahkan tanggal, bulan, dan tahun menggunakan fungsi split() dan hasilnya disimpan ke dalam array `date`. Selanjutnya, periksa apakah tahun (`date[3]`) adalah 17 dan apakah kotanya adalah "Albuquerque". Jika kedua syarat tersebut terpenuhi, tambahkan nilai dalam array `customers` di indeks `segment` dengan satu. Indeks `segment` yang dimaksud adalah "Home Office", "Customer", dan "Corporate".
+
+```
+#split tanggal dengan delimiter "-" dan menyimpan hasilnya dalam array "date"
+split($3, date, "-");
+#jika tahun dari tanggal adalah 2017 dan kotanya adalah "Albuquerque"
+if(date[3] == 17 && $10 == "Albuquerque") {
+    customers[$7] += 1;
+}
+```
+
+Terakhir, cetak nama customer yang menjadi key dalam array `customers`.
+
+```
+print "Daftar nama customer di Albuquerque pada tahun 2017 antara lain:";
+for(customer in customers) {
+    print customer;
+}
+```
+
 ### Soal 2c
 ### Soal 2d
 ### Soal 2e
