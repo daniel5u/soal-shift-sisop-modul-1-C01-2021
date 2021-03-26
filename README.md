@@ -81,8 +81,8 @@ if(curr_cost_price != 0) {
 Terakhir, dalam block END, hitung profit percentage menggunakan fungsi `profit_percentage()` dengan argumen `max_pr`. Setelah itu, cetak profit percentage terbesar dan Row IDnya.
 
 ```
-    printf("Transaksi terakhir dengan profit percentage terbesar yaitu %d dengan persentase %d%%.\n", 
-    max_row_id, profit_percentage(max_pr));
+printf("Transaksi terakhir dengan profit percentage terbesar yaitu %d dengan persentase %d%%.\n", 
+max_row_id, profit_percentage(max_pr));
 ```
 
 ### Soal 2b
