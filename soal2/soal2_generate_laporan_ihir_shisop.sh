@@ -71,7 +71,7 @@ BEGIN {
                     max_pr = curr_pr;
                     max_row_id = $1;
                 }
-                else if(max_pr == curr_pr) {
+                else if(max_pr == curr_pr && $1 > max_row_id) {
                     max_row_id = $1;
                 }
             }
