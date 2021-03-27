@@ -267,7 +267,7 @@ Selanjutnya, hitung jumlah transaksi dari setiap segment. Untuk setiap baris yan
 transactions[$8] += 1;
 ```
 
-Terakhir, cari jumlah transaksi yang paling sedikit dalam array `transactions`. Nilai awal yang digunakan adalah data yang dapat diakses saat iterasi pertama dan `flag_ts` berfungsi sebagai penanda bahwa data awal tersebut sudah diambil. Untuk setiap data, jika terdapat jumlah transaksi yang lebih kecil dari nilai `min_ts`, maka perbarui `min_ts` dengan jumlah transaksi tersebut dan perbarui `segment` dengan nama segment yang memiliki jumlah transaksi tersebut. Setelah perulangan selesai, cetak string `segment` dan nilai `min_ts`.
+Terakhir, cari jumlah transaksi yang paling sedikit dalam array `transactions`. Nilai awal yang digunakan adalah data yang dapat diakses saat iterasi pertama dan nilai awal tersebut disimpan dalam `min_ts` dan keynya disimpan di `segment`. `flag_ts` berfungsi sebagai penanda bahwa data awal tersebut sudah diambil. Untuk setiap data, jika terdapat jumlah transaksi yang lebih kecil dari nilai `min_ts`, maka perbarui `min_ts` dengan jumlah transaksi tersebut dan perbarui `segment` dengan nama segment yang memiliki jumlah transaksi tersebut. Setelah perulangan selesai, cetak string `segment` dan nilai `min_ts`.
 
 ```
 #mencari jumlah transaksi segment yang paling sedikit
