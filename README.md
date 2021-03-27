@@ -228,7 +228,7 @@ Diminta mencari nama customer pada transaksi tahun 2017 di kota Albuquerque.
 
 **Solusi:**
 
-Pertama, pisahkan tanggal, bulan, dan tahun menggunakan fungsi split() dan hasilnya disimpan ke dalam array `date`. Selanjutnya, periksa apakah tahun (`date[3]`) adalah 17 dan apakah kotanya adalah "Albuquerque". Jika kedua syarat tersebut terpenuhi, tambahkan nilai dalam array `customers` di indeks `customer name` dengan satu. Indeks `customer name` adalah string nama customer.
+Pertama, pisahkan tanggal, bulan, dan tahun menggunakan fungsi split() dan hasilnya disimpan ke dalam array `date`. Selanjutnya, periksa apakah tahun (`date[3]`) adalah 17 dan apakah kotanya adalah "Albuquerque". Jika kedua syarat tersebut terpenuhi, tambahkan nilai dalam array `customers` di indeks `customer name` dengan satu. `customer name` adalah string nama customer.
 
 ```
 #split tanggal dengan delimiter "-" dan menyimpan hasilnya dalam array "date"
