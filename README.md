@@ -7,6 +7,8 @@
 ## Soal Asli
 https://docs.google.com/document/d/1T3Y4o2lt5JvLTHdgzA5vRBQ0QYempbC5z-jcDAjela0/edit
 
+# Penjelasan dan Pembahasan Soal
+
 ## Soal 1
 Ryujin menjadi IT Support di perusahaan Bukapedia.Ia diberi 2 tugas untuk membuat laporan harian aplikasi internal perusahaan yang bernama ticky.Terdapat 2 laporan yang harus dia buat, yaitu laporan daftar peringkat pesan error terbanyak yang dibuat oleh ticky dan laporan penggunaan user pada aplikasi ticky.
 dari soal tersebut ditemukan solusinya yaitu kita harus mengakses file syslog.log terlebih dahulu untuk mendapatkan data errornya kemudian kita read datanya menggunakan cat setelah itu kita gunakan regex untuk sortir datanya.
