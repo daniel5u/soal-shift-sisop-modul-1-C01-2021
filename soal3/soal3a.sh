@@ -50,4 +50,3 @@ do
 		done
 	fi
 done
-echo "sama = $sama"
