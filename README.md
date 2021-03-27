@@ -304,7 +304,7 @@ Selanjutnya, hitung total profit dari setiap region. Untuk setiap baris yang dig
 profits[$13] += $21;
 ```
 
-Terakhir, cari total profit yang paling sedikit dalam array `profits`. Nilai awal yang digunakan adalah data yang dapat diakses saat iterasi pertama dan `flag_p` berfungsi sebagai penanda bahwa data awal tersebut sudah diambil. Untuk setiap data, jika terdapat total profit yang lebih kecil dari nilai `min_p`, maka perbarui `min_p` dengan total profit tersebut dan perbarui `region` dengan nama region yang memiliki total profit tersebut. Setelah perulangan selesai, cetak string `region` dan nilai `min_p`.
+Terakhir, cari total profit yang paling sedikit dalam array `profits`. Nilai awal yang digunakan adalah data yang dapat diakses saat iterasi pertama dan nilai awal tersebut disimpan dalam `min_p` dan keynya disimpan di `region`. `flag_p` berfungsi sebagai penanda bahwa data awal tersebut sudah diambil. Untuk setiap data, jika terdapat total profit yang lebih kecil dari nilai `min_p`, maka perbarui `min_p` dengan total profit tersebut dan perbarui `region` dengan nama region yang memiliki total profit tersebut. Setelah perulangan selesai, cetak string `region` dan nilai `min_p`.
 
 ```
 #mencari total keuntungan wilayah yang paling sedikit
