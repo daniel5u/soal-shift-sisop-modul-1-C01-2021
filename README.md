@@ -82,7 +82,7 @@ kemudian tampilkan datanya
 ```
 sorteduserlog=$(echo $userlog | sort | uniq | sort)
 ```
-### soal 1d
+### Soal 1d
 Semua informasi yang didapatkan pada poin b dituliskan ke dalam file error_message.csv dengan header Error,Count yang kemudian diikuti oleh daftar pesan error dan jumlah kemunculannya diurutkan berdasarkan jumlah kemunculan pesan error dari yang terbanyak.
 
 **Solusi:**
@@ -95,7 +95,7 @@ do
 done >> "error_message.csv"
 ```
 
-### soal 1e
+### Soal 1e
 Semua informasi yang didapatkan pada poin c dituliskan ke dalam file user_statistic.csv dengan header Username,INFO,ERROR diurutkan berdasarkan username secara ascending.
 
 **Solusi:**
