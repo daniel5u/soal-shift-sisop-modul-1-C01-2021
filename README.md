@@ -23,12 +23,12 @@ lalu terakhir kita dapatkan hasilnya
 ```
 #!/bin/bash
 input="syslog.log"
-#cut -d " " -f 1-3 $input
-#grep -oE "(ERROR)(.*)\(.*\)" syslog.log |sort|uniq|cut -d " " -f 2-  
-#input3=$(cat syslog.log)
+cut -d " " -f 1-3 $input
+grep -oE "(ERROR)(.*)\(.*\)" syslog.log | sort | uniq | cut -d " " -f 2-  
+input3=$(cat syslog.log)
 regex="(ERROR |INFO )(.*) \((.*)\)"
 regex2="(ERROR )(.*) \((.*)\)"
-#grep -oP "$regex" "$input"
+grep -oP "$regex" "$input"
 ```
 
 ### Soal 1b
@@ -38,7 +38,7 @@ Kemudian, Ryujin harus menampilkan semua pesan error yang muncul beserta jumlah 
 
 Pertama, dibuatkan fungsi untuk mengakses data error
 ```
-get_error_logs(){
+get_error_log(){
  local s=$1 regex=$2 
  while [[ $s =~ $regex ]]; do
   printf "${BASH_REMATCH[2]}\n"
@@ -48,13 +48,14 @@ get_error_logs(){
 ```
 Kemudian Dapatkan semua pesan error dan sorting kemudian munculkan pesan
 ```
-errorlogs=$(
+errorlog=$(
 while read -r line
 do
- get_error_logs "$line" "$regex2"
+ get_error_log "$line" "$regex2"
 done < "$input")
-sortederrorlogs=$(echo $errorlogs | sort | uniq -c | sort -nr | tr -s [:space:])
-#echo $sortederrorlogs
+
+sortederrorlog=$(echo $errorlog | sort | uniq -c | sort -nr | tr -s [:space:])
+echo $sortederrorlog
 ```
 ### Soal 1c
 Ryujin juga harus dapat menampilkan jumlah kemunculan log ERROR dan INFO untuk setiap user-nya.
@@ -86,6 +87,9 @@ sorteduserlog=$(echo $userlog | sort | uniq | sort)
 Semua informasi yang didapatkan pada poin b dituliskan ke dalam file error_message.csv dengan header Error,Count yang kemudian diikuti oleh daftar pesan error dan jumlah kemunculannya diurutkan berdasarkan jumlah kemunculan pesan error dari yang terbanyak.
 
 **Solusi:**
+Pertama inisiasi poin b yang sudah dituliskan menggunakan echo 
+kemudian read data poin b yang sudah di inisiasi
+lalu redirect menjadi file csv.
 ```
 printf "Error,Count\n" >> "error_message.csv"
 echo "$sortederrorlog" | grep -oP "^ *[0-9]+ \K.*" | while read -r line
@@ -99,6 +103,8 @@ done >> "error_message.csv"
 Semua informasi yang didapatkan pada poin c dituliskan ke dalam file user_statistic.csv dengan header Username,INFO,ERROR diurutkan berdasarkan username secara ascending.
 
 **Solusi:**
+Solusi sama dengan poin 1d  hanya diberi header 
+setelah itu langsung redirect ke dalam file csv
 ```
 error=$(grep "ERROR" "$input") 
 info=$(grep "INFO" "$input")
