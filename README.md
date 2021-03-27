@@ -260,7 +260,7 @@ flag_ts = 0;
 min_ts = 0;
 ```
 
-Selanjutnya, hitung jumlah transaksi dari setiap segment. Untuk setiap baris yang digunakan, tambahkan nilai dalam array `transactions` di indeks `segment` dengan satu. Indeks `segment` adalah string "Home Office", "Customer", atau "Corporate".
+Selanjutnya, hitung jumlah transaksi dari setiap segment. Untuk setiap baris yang digunakan, tambahkan nilai dalam array `transactions` di indeks `segment` dengan satu. `segment` adalah string "Home Office", "Customer", atau "Corporate".
 
 ```
 #menghitung jumlah transaksi segment 
@@ -297,7 +297,7 @@ flag_p = 0;
 min_p = 0;
 ```
 
-Selanjutnya, hitung total profit dari setiap region. Untuk setiap baris yang digunakan, tambahkan nilai dalam array `profits` di indeks `region` dengan nilai `profit` yang berada di field ke-21. Indeks `region` adalah string "Central", "East", "South", atau "West".
+Selanjutnya, hitung total profit dari setiap region. Untuk setiap baris yang digunakan, tambahkan nilai dalam array `profits` di indeks `region` dengan nilai `profit` yang berada di field ke-21. `region` adalah string "Central", "East", "South", atau "West".
 
 ```
 #menghitung total profit region
