@@ -113,7 +113,7 @@ done >> "user_statistic.csv"
 
 ## Soal 2
 Pendiri dan manager dari TokoShiSop meminta agar dicarikan beberapa kesimpulan dari data penjualan “Laporan-TokoShiSop.tsv”.
-Agar file “Laporan-TokoShiSop.tsv” dapat diolah menggunakan awk, field separator yang digunakan adalah `\t`. Maka dari itu, digunakan command `awk -F '\t'`. Selanjutnya, untuk setiap subsoal (2a sampai 2d), baris yang digunakan adalah baris ke-2 sampai baris terakhir karena baris ke-1 hanya berisi header. Maka dari itu, digunakan statment if seperti berikut.
+Agar file “Laporan-TokoShiSop.tsv” dapat diolah menggunakan awk, field separator yang digunakan adalah `\t`. Maka dari itu, digunakan command `awk -F '\t'`. Selanjutnya, untuk setiap subsoal (2a sampai 2d), baris yang digunakan adalah baris ke-2 sampai baris terakhir karena baris ke-1 hanya berisi header. Maka dari itu, digunakan statement if seperti berikut.
 
 ```
 if(NR > 1) {
