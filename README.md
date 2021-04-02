@@ -225,6 +225,8 @@ max_row_id, profit_percentage(max_pr));
 
 **Screenshot hasil**
 
+![2a_hasil](https://user-images.githubusercontent.com/58259649/113411019-5eac2300-93e7-11eb-9b64-741a979310fb.jpg)
+
 **Kendala**
 
 * `cost_price` dapat bernilai 0 yang menyebabkan profit percentage tidak dapat dihitung karena pembagian dengan 0. Solusinya adalah memeriksa terlebih dahulu apakah `cost_price` = 0. Jika `cost_price` tidak sama dengan 0, maka dapat lanjut ke perhitungan profit percentage.
@@ -255,6 +257,8 @@ for(customer in customers) {
 ```
 
 **Screenshot hasil**
+
+![2b_hasil](https://user-images.githubusercontent.com/58259649/113411032-67045e00-93e7-11eb-98d6-a19a6c5930c8.jpg)
 
 **Kendala**
 
@@ -299,6 +303,8 @@ printf("Tipe segmen customer yang penjualannya paling sedikit adalah %s dengan %
 
 **Screenshot hasil**
 
+![2c_hasil](https://user-images.githubusercontent.com/58259649/113411051-6cfa3f00-93e7-11eb-95fb-b28b5906a0e4.jpg)
+
 **Kendala**
 * Tidak ada
 
@@ -341,6 +347,8 @@ printf("Wilayah bagian (region) yang memiliki total keuntungan (profit) yang pal
 
 **Screenshot hasil**
 
+![2d_hasil](https://user-images.githubusercontent.com/58259649/113411067-77b4d400-93e7-11eb-863f-99eb74b4ea06.jpg)
+
 **Kendala**
 * Tidak ada
 
@@ -356,6 +364,10 @@ Pada bagian akhir script diberi redirection.
 ```
 
 **Screenshot hasil**
+
+![2e_hasil1](https://user-images.githubusercontent.com/58259649/113411080-7b485b00-93e7-11eb-96e9-769036a08d18.jpg)
+
+![2e_hasil2](https://user-images.githubusercontent.com/58259649/113411084-7d121e80-93e7-11eb-85f2-4da19a5c52da.jpg)
 
 **Kendala**
 * Tidak ada
