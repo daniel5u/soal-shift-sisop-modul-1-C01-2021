@@ -252,6 +252,10 @@ for(customer in customers) {
 }
 ```
 
+**Kendala**
+
+* Memisahkan tahun dari tanggal dalam field `order date`. Solusinya adalah menggunakan fungsi `split()`
+
 ### Soal 2c
 Diminta mencari segment customer dan jumlah transaksinya yang paling sedikit.
 
@@ -288,6 +292,9 @@ for(i in transactions) {
 }
 printf("Tipe segmen customer yang penjualannya paling sedikit adalah %s dengan %d transaksi.\n", segment, min_ts);
 ```
+
+**Kendala**
+* Tidak ada
 
 ### Soal 2d
 Diminta mencari wilayah bagian (region) yang memiliki total keuntungan (profit) paling sedikit dan total keuntungan wilayah tersebut.
@@ -326,6 +333,9 @@ for(i in profits) {
 printf("Wilayah bagian (region) yang memiliki total keuntungan (profit) yang paling sedikit adalah %s dengan total keuntungan %f\n", region, min_p);
 ```
 
+**Kendala**
+* Tidak ada
+
 ### Soal 2e
 Diminta mengeluarkan hasil dari soal 2a sampai soal 2d dalam satu file yang bernama “hasil.txt”.
 
@@ -337,6 +347,8 @@ Pada bagian akhir script diberi redirection.
 > hasil.txt
 ```
 
+**Kendala**
+* Tidak ada
 
 ## Soal 3
 Kuuhaku adalah orang yang sangat suka mengoleksi foto-foto digital, namun Kuuhaku juga merupakan seorang yang pemalas sehingga ia tidak ingin repot-repot mencari foto, selain itu ia juga seorang pemalu, sehingga ia tidak ingin ada orang yang melihat koleksinya tersebut, sayangnya ia memiliki teman bernama Steven yang memiliki rasa kepo yang luar biasa. Kuuhaku pun memiliki ide agar Steven tidak bisa melihat koleksinya, serta untuk mempermudah hidupnya.
