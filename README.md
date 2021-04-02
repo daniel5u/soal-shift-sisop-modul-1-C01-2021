@@ -129,7 +129,23 @@ done >> "user_statistic.csv"
 ```
 ### Output
 ![pasted image 0](https://user-images.githubusercontent.com/81347366/113429413-ae4c1800-9402-11eb-9c59-1031bc919ac5.png)
+**Output Ketika Program di Bash**
 
+![pasted image 0 (1)](https://user-images.githubusercontent.com/81347366/113429533-e4899780-9402-11eb-99e3-7129c9468385.png)
+**Output CSV 
+
+![pasted image 0 (2)](https://user-images.githubusercontent.com/81347366/113429664-1ac71700-9403-11eb-9937-e5f571e06934.png)
+**Output Setiap User
+
+### Kendala
+Pada No.1 Ini kami menemukan beberapa kendala yaitu error message tidak bisa di print out setiap line/ tidak rapi.Kemudian karena hal tersebut maka fungsi count yang seharusnya menghitung error menjadi tidak berjalan karena program tidak menemukan kecocokan antara log dan message yang di-print.Berikut Dokumentasi kendala yang kami alami
+![pasted image 0 (3)](https://user-images.githubusercontent.com/81347366/113430009-9c1ea980-9403-11eb-8dee-f98f93def614.png)
+**Error pada bagian bawah**
+
+Kemudian terjadi error output juga pada kedua file csv dimana hasil tidak sesuai yang diharapkan. Pada csv untuk menampilkan error, disitu tidak tertulis error sama sekali dan tidak ada count juga, kemudian pada file csv error setiap user juga mengalami kendala serupa.
+
+![pasted image 0 (4)](https://user-images.githubusercontent.com/81347366/113430515-83fb5a00-9404-11eb-8c2f-f2f2f7716722.png)
+![pasted image 0 (5)](https://user-images.githubusercontent.com/81347366/113430535-8d84c200-9404-11eb-9310-3926390e27f5.png)
 
 
 
