@@ -474,6 +474,7 @@ Lalu jalankan command di atas secara otomatis menggunakan crontab seperti yang t
 
 **Hasil**
 
+![SS hasil 3b (1)](https://user-images.githubusercontent.com/81345045/113406626-fdc81f00-93d5-11eb-9462-1efa8a005af1.JPG)
 
 Gambar di atas merupakan hasil dari pemindahan file gambar yang telah diunduh dan file log-nya ke folder dengan nama tanggal unduh dengan format "DD-MM-YYYY".
 
