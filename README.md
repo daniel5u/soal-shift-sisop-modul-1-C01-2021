@@ -128,6 +128,8 @@ do
 done >> "user_statistic.csv"
 ```
 ### Output
+![pasted image 0](https://user-images.githubusercontent.com/81347366/113429413-ae4c1800-9402-11eb-9c59-1031bc919ac5.png)
+
 
 
 
