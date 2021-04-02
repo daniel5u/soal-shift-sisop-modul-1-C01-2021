@@ -223,6 +223,8 @@ printf("Transaksi terakhir dengan profit percentage terbesar yaitu %d dengan per
 max_row_id, profit_percentage(max_pr));
 ```
 
+**Kendala**
+
 ### Soal 2b
 Diminta mencari nama customer pada transaksi tahun 2017 di kota Albuquerque.
 
