@@ -435,6 +435,10 @@ do
 done
 ```
 
+**Kendala**
+
+* Kesulitan mencari command untuk membandingkan dua file gambar. Solusinya adalah menggunakan command cmp lalu mengecek apakah command tersebut berjalan atau mengalami error.
+
 ### Soal 3b
 Diminta untuk menjalankan script pada soal 3a secara otomatis sehari sekali pada jam 8 malam untuk tanggal-tanggal tertentu, yaitu dari tanggal 1 tujuh hari sekali dan dari tanggal 2 empat hari sekali. Kemudian, file gambar yang sudah diunduh beserta log-nya dipindah ke folder dengan nama tanggal unduh dengan format "DD-MM-YYYY".
 
@@ -457,6 +461,9 @@ Lalu jalankan command di atas secara otomatis menggunakan crontab seperti yang t
 ```
 0 20 1-31/7,2-31/4 * * /bin/bash /home/dwinanda/SISOP/Modul1/soal3b.sh
 ```
+
+**Kendala**
+* Tidak ada
 
 ### Soal 3c
 Diminta untuk mengunduh gambar kelinci ("https://loremflickr.com/320/240/bunny") dan kucing ("https://loremflickr.com/320/240/kitten") seperti pada poin sebelumnya secara bergantian setiap hari dan memasukkannya ke dalam folder dengan nama "Kelinci_" atau "Kucing_" kemudian diikuti dengan tanggal unduh dengan format "DD-MM-YYYY"
@@ -597,6 +604,9 @@ else
 fi
 ```
 
+**Kendala**
+* Tidak ada
+
 ### Soal 3d
 Diminta untuk memindahkan seluruh folder ke zip yang diberi nama `Koleksi.zip` dan menguncinya dengan password berupa tanggal saat ini dengan format "MMDDYYYY".
 
@@ -609,6 +619,9 @@ Jalankan command `zip` dengan diikuti `-P` untuk memberi password dengan diikuti
 
 zip -P `date +"%m%d%Y"` -r -m  Koleksi.zip ./Kucing* ./Kelinci*
 ```
+
+**Kendala**
+* Tidak ada
 
 ### Soal 3e
 Diminta untuk zip semua koleksi gambar secara otomatis setiap hari senin hingga jumat, dari jam 7 pagi sampai 6 sore, lalu unzip semua koleksi gambar pada selain waktu tersebut dan tidak ada file zip sama sekali.
@@ -626,3 +639,6 @@ Kemudian, unzip file `Koleksi.sip` dengan memasukkan password saat ini dan jalan
 ```
 0 18 * * 1-5 unzip -P `date +"%m%d%Y"` Koleksi.zip && rm Koleksi.zip
 ```
+
+**Kendala**
+* Tidak ada
