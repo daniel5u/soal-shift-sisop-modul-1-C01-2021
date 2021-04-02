@@ -440,6 +440,8 @@ done
 * Kesulitan mencari command untuk membandingkan dua file gambar. Solusinya adalah menggunakan command cmp lalu mengecek apakah command tersebut berjalan atau mengalami error.
 
 **Hasil**
+
+
 ![SS hasil 3a](https://user-images.githubusercontent.com/81345045/113406031-fa806380-93d4-11eb-8cf5-c45537d22122.JPG)
 
 Gambar di atas merupakan hasil download 20 gambar (karena ada 3 gambar yang sama) beserta file log-nya.
