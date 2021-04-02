@@ -474,6 +474,7 @@ Lalu jalankan command di atas secara otomatis menggunakan crontab seperti yang t
 
 **Hasil**
 
+
 ![SS hasil 3b (1)](https://user-images.githubusercontent.com/81345045/113406626-fdc81f00-93d5-11eb-9462-1efa8a005af1.JPG)
 
 Gambar di atas merupakan hasil dari pemindahan file gambar yang telah diunduh dan file log-nya ke folder dengan nama tanggal unduh dengan format "DD-MM-YYYY".
@@ -620,6 +621,12 @@ fi
 **Kendala**
 * Tidak ada
 
+**Hasil**
+
+
+
+Gambar di atas merupakan hasil unduh apabila hari sebelumnya talah mengunduh gambar kelinci, maka hari ini akan mengunduh gambar kucing.
+
 ### Soal 3d
 Diminta untuk memindahkan seluruh folder ke zip yang diberi nama `Koleksi.zip` dan menguncinya dengan password berupa tanggal saat ini dengan format "MMDDYYYY".
 
@@ -655,3 +662,11 @@ Kemudian, unzip file `Koleksi.zip` dengan memasukkan password saat ini dan jalan
 
 **Kendala**
 * Tidak ada
+
+**Hasil**
+
+
+Gambar di atas merupakan hasil zip pada semua folder yang diawali dengan nama "Kucing" dan "Kelinci".
+
+
+Gambar di atas merupakan hasil unzip dari file Koleksi.zip dan menghapus file zip tersebut.
