@@ -439,6 +439,10 @@ done
 
 * Kesulitan mencari command untuk membandingkan dua file gambar. Solusinya adalah menggunakan command cmp lalu mengecek apakah command tersebut berjalan atau mengalami error.
 
+**Hasil**
+
+Gambar di atas merupakan hasil download 20 gambar (karena ada 3 gambar yang sama) beserta file log-nya.
+
 ### Soal 3b
 Diminta untuk menjalankan script pada soal 3a secara otomatis sehari sekali pada jam 8 malam untuk tanggal-tanggal tertentu, yaitu dari tanggal 1 tujuh hari sekali dan dari tanggal 2 empat hari sekali. Kemudian, file gambar yang sudah diunduh beserta log-nya dipindah ke folder dengan nama tanggal unduh dengan format "DD-MM-YYYY".
 
