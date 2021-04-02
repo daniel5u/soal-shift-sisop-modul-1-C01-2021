@@ -223,6 +223,8 @@ printf("Transaksi terakhir dengan profit percentage terbesar yaitu %d dengan per
 max_row_id, profit_percentage(max_pr));
 ```
 
+**Screenshot hasil**
+
 **Kendala**
 
 * `cost_price` dapat bernilai 0 yang menyebabkan profit percentage tidak dapat dihitung karena pembagian dengan 0. Solusinya adalah memeriksa terlebih dahulu apakah `cost_price` = 0. Jika `cost_price` tidak sama dengan 0, maka dapat lanjut ke perhitungan profit percentage.
@@ -251,6 +253,8 @@ for(customer in customers) {
     print customer;
 }
 ```
+
+**Screenshot hasil**
 
 **Kendala**
 
@@ -293,6 +297,8 @@ for(i in transactions) {
 printf("Tipe segmen customer yang penjualannya paling sedikit adalah %s dengan %d transaksi.\n", segment, min_ts);
 ```
 
+**Screenshot hasil**
+
 **Kendala**
 * Tidak ada
 
@@ -333,6 +339,8 @@ for(i in profits) {
 printf("Wilayah bagian (region) yang memiliki total keuntungan (profit) yang paling sedikit adalah %s dengan total keuntungan %f\n", region, min_p);
 ```
 
+**Screenshot hasil**
+
 **Kendala**
 * Tidak ada
 
@@ -346,6 +354,8 @@ Pada bagian akhir script diberi redirection.
 ```
 > hasil.txt
 ```
+
+**Screenshot hasil**
 
 **Kendala**
 * Tidak ada
