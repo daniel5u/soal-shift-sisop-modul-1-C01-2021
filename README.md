@@ -16,11 +16,13 @@ dari soal tersebut ditemukan solusinya yaitu kita harus mengakses file syslog.lo
 ### Soal 1a
 Diminta ,mengumpulkan informasi dari log aplikasi yang terdapat pada file syslog.log. Informasi yang diperlukan antara lain: jenis log (ERROR/INFO), pesan log, dan username pada setiap baris lognya. 
 **Cara pengerjaan**
+
 Pertama, buat file bash yang berisi command untuk menjalankan file bash dari soal
 Kemudian kita input syslog untuk mengakses data 
 Kita dapatkan data error dengan grep command setelah itu kita read data dari grep tersebut dengan menggunakan fungsi cat dan regex
 Disini kami menggunakan beberapa Regex yang memiliki fungsi masing2 untuk menampilkan error atau info maupun keduanya, serta untuk menampilkan log dan user
 lalu terakhir kita dapatkan hasilnya
+
 ```
 #!/bin/bash
 input="syslog.log"
@@ -41,6 +43,7 @@ Pertama, dibuatkan fungsi untuk mengakses data error
 Oleh karena hanya diminta Error saja maka kami modifikasi regex tersebut hanya untuk menampilkan error saja
 Program pembacaan akan dijalankan pada setiap line dengan iterasi ```while``` agar tidak terjadi miss output
 setelah itu tampilkan hasil dari error yang sudah di sort dan read
+
 ```
 get_error_log(){
  local s=$1 regex=$2 
