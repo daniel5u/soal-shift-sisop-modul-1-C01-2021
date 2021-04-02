@@ -15,6 +15,7 @@ dari soal tersebut ditemukan solusinya yaitu kita harus mengakses file syslog.lo
 
 ### Soal 1a
 Diminta ,mengumpulkan informasi dari log aplikasi yang terdapat pada file syslog.log. Informasi yang diperlukan antara lain: jenis log (ERROR/INFO), pesan log, dan username pada setiap baris lognya. 
+
 **Cara pengerjaan**
 
 Pertama, buat file bash yang berisi command untuk menjalankan file bash dari soal
@@ -67,6 +68,7 @@ echo $sortederrorlog
 Ryujin juga harus dapat menampilkan jumlah kemunculan log ERROR dan INFO untuk setiap user-nya.
 
 **Cara pengerjaan**
+
 Pertama kita buat fungsi untuk menampilkan error log untuk setiap user menggunakan regex yang sudah dibuat untuk menampilkan user
 ```
 get_user_log(){
@@ -93,6 +95,7 @@ sorteduserlog=$(echo $userlog | sort | uniq | sort)
 Semua informasi yang didapatkan pada poin b dituliskan ke dalam file error_message.csv dengan header Error,Count yang kemudian diikuti oleh daftar pesan error dan jumlah kemunculannya diurutkan berdasarkan jumlah kemunculan pesan error dari yang terbanyak.
 
 **Cara pengerjaan**
+
 Pertama inisiasi ```sortederrorlog```
 kemudian read data poin b yang sudah di inisiasi
 ambil data pesan log yang ada
@@ -110,6 +113,7 @@ done >> "error_message.csv"
 Semua informasi yang didapatkan pada poin c dituliskan ke dalam file user_statistic.csv dengan header Username,INFO,ERROR diurutkan berdasarkan username secara ascending.
 
 **Cara pengerjaan**
+
 Solusi sama dengan poin 1d 
 setelah itu langsung redirect ke dalam file csv
 ```
@@ -123,7 +127,9 @@ do
  printf "$line,$infocount,$errcount\n"
 done >> "user_statistic.csv"
 ```
-Output
+### Output
+
+
 
 ## Soal 2
 Pendiri dan manager dari TokoShiSop meminta agar dicarikan beberapa kesimpulan dari data penjualan “Laporan-TokoShiSop.tsv”.
