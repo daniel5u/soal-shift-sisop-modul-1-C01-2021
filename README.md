@@ -229,7 +229,7 @@ max_row_id, profit_percentage(max_pr));
 
 **Kendala**
 
-* `cost_price` dapat bernilai 0 yang menyebabkan profit percentage tidak dapat dihitung karena pembagian dengan 0. Solusinya adalah memeriksa terlebih dahulu apakah `cost_price` = 0. Jika `cost_price` tidak sama dengan 0, maka dapat lanjut ke perhitungan profit percentage.
+* `cost_price` dapat bernilai 0 yang menyebabkan profit percentage tidak dapat dihitung karena pembagian dengan 0. Solusinya adalah memeriksa terlebih dahulu apakah `cost_price` tidak sama dengan 0. Jika `cost_price` tidak sama dengan 0, maka dapat lanjut ke perhitungan profit percentage.
 
 ### Soal 2b
 Diminta mencari nama customer pada transaksi tahun 2017 di kota Albuquerque.
