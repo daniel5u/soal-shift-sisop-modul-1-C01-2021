@@ -15,7 +15,7 @@ dari soal tersebut ditemukan solusinya yaitu kita harus mengakses file syslog.lo
 
 ### Soal 1a
 Diminta ,mengumpulkan informasi dari log aplikasi yang terdapat pada file syslog.log. Informasi yang diperlukan antara lain: jenis log (ERROR/INFO), pesan log, dan username pada setiap baris lognya. 
-**Solusi:**
+**Cara pengerjaan**
 Pertama, buat file bash yang berisi command untuk menjalankan file bash dari soal
 Kemudian kita input syslog untuk mengakses data 
 Kita dapatkan data error dengan grep command setelah itu kita read data dari grep tersebut dengan menggunakan fungsi cat dan regex
@@ -34,7 +34,7 @@ grep -oP "$regex" "$input"
 ### Soal 1b
 Kemudian, Ryujin harus menampilkan semua pesan error yang muncul beserta jumlah kemunculannya.
 
-**Solusi:**
+**Cara pengerjaan**
 
 Pertama, dibuatkan fungsi untuk mengakses data error
 ```
@@ -60,7 +60,7 @@ echo $sortederrorlog
 ### Soal 1c
 Ryujin juga harus dapat menampilkan jumlah kemunculan log ERROR dan INFO untuk setiap user-nya.
 
-**Solusi:**
+**Cara pengerjaan**
 Pertama kita buat fungsi untuk menampilkan error log untuk setiap user
 ```
 get_user_log(){
@@ -86,7 +86,7 @@ sorteduserlog=$(echo $userlog | sort | uniq | sort)
 ### Soal 1d
 Semua informasi yang didapatkan pada poin b dituliskan ke dalam file error_message.csv dengan header Error,Count yang kemudian diikuti oleh daftar pesan error dan jumlah kemunculannya diurutkan berdasarkan jumlah kemunculan pesan error dari yang terbanyak.
 
-**Solusi:**
+**Cara pengerjaan**
 Pertama inisiasi poin b yang sudah dituliskan menggunakan echo 
 kemudian read data poin b yang sudah di inisiasi
 lalu redirect menjadi file csv.
@@ -102,7 +102,7 @@ done >> "error_message.csv"
 ### Soal 1e
 Semua informasi yang didapatkan pada poin c dituliskan ke dalam file user_statistic.csv dengan header Username,INFO,ERROR diurutkan berdasarkan username secara ascending.
 
-**Solusi:**
+**Cara pengerjaan**
 Solusi sama dengan poin 1d  hanya diberi header 
 setelah itu langsung redirect ke dalam file csv
 ```
@@ -161,7 +161,7 @@ Diminta untuk mencari Row ID dan profit percentage terbesar dan jika profit perc
 
 <img src="https://render.githubusercontent.com/render/math?math=cost price = sales - profit">
 
-**Solusi:**
+**Cara pengerjaan**
 
 Pertama, dibuatkan fungsi untuk menghitung profit percentage, cost price, dan profit ratio seperti berikut.
 
@@ -230,7 +230,7 @@ max_row_id, profit_percentage(max_pr));
 ### Soal 2b
 Diminta mencari nama customer pada transaksi tahun 2017 di kota Albuquerque.
 
-**Solusi:**
+**Cara pengerjaan**
 
 Pertama, pisahkan tanggal, bulan, dan tahun menggunakan fungsi split() dan hasilnya disimpan ke dalam array `date`. Selanjutnya, periksa apakah tahun (`date[3]`) adalah 17 dan apakah kotanya adalah "Albuquerque". Jika kedua syarat tersebut terpenuhi, tambahkan nilai dalam array `customers` di indeks `customer name` dengan satu. `customer name` adalah string nama customer.
 
@@ -259,7 +259,7 @@ for(customer in customers) {
 ### Soal 2c
 Diminta mencari segment customer dan jumlah transaksinya yang paling sedikit.
 
-**Solusi:**
+**Cara pengerjaan**
 
 Pertama, inisialisasi variabel yang akan digunakan dalam block BEGIN.
 
@@ -299,7 +299,7 @@ printf("Tipe segmen customer yang penjualannya paling sedikit adalah %s dengan %
 ### Soal 2d
 Diminta mencari wilayah bagian (region) yang memiliki total keuntungan (profit) paling sedikit dan total keuntungan wilayah tersebut.
 
-**Solusi:**
+**Cara pengerjaan**
 
 Pertama, inisialisasi variabel yang akan digunakan dalam block BEGIN.
 
@@ -339,7 +339,7 @@ printf("Wilayah bagian (region) yang memiliki total keuntungan (profit) yang pal
 ### Soal 2e
 Diminta mengeluarkan hasil dari soal 2a sampai soal 2d dalam satu file yang bernama “hasil.txt”.
 
-**Solusi:**
+**Cara pengerjaan**
 
 Pada bagian akhir script diberi redirection.
 
@@ -356,7 +356,7 @@ Kuuhaku adalah orang yang sangat suka mengoleksi foto-foto digital, namun Kuuhak
 ### Soal 3a
 Diminta untuk mengunduh 23 gambar dari "https://loremflickr.com/320/240/kitten" serta menyimpan log-nya ke file "Foto.log". Apabila mengunduh gambar yang sama, maka gambar tersebut dihapus tanpa harus mengganti dengan gambar yang baru. Kemudian menyimpan gambar-gambar tersebut dengan format nama “Koleksi_XX” dengan nomor yang berurutan tanpa ada nomor yang hilang.
 
-**Solusi:**
+**Cara pengerjaan**
 
 Pertama, inisialisasi variabel `N` dan `sama`. Variabel `N` digunakan untuk membatasi jumlah file dan juga digunakan untuk memberi nama pada file gambar. Sedangkan variabel `sama` digunakan untuk menghitung dan menyimpan berapa jumlah file yang sama pada variabel tersebut.
 
@@ -449,7 +449,7 @@ Gambar di atas merupakan hasil download 20 gambar (karena ada 3 gambar yang sama
 ### Soal 3b
 Diminta untuk menjalankan script pada soal 3a secara otomatis sehari sekali pada jam 8 malam untuk tanggal-tanggal tertentu, yaitu dari tanggal 1 tujuh hari sekali dan dari tanggal 2 empat hari sekali. Kemudian, file gambar yang sudah diunduh beserta log-nya dipindah ke folder dengan nama tanggal unduh dengan format "DD-MM-YYYY".
 
-**Solusi:**
+**Cara pengerjaan**
 
 Pertama, buat file bash yang berisi command untuk menjalankan file bash dari soal 3a. Kemudian buat folder atau directory bernama tanggal unduh. Lalu pindahkan semua file gambar dan file log ke dalam folder yang telah dibuat.
 
@@ -482,7 +482,7 @@ Gambar di atas merupakan hasil dari pemindahan file gambar yang telah diunduh da
 ### Soal 3c
 Diminta untuk mengunduh gambar kelinci ("https://loremflickr.com/320/240/bunny") dan kucing ("https://loremflickr.com/320/240/kitten") seperti pada poin sebelumnya secara bergantian setiap hari dan memasukkannya ke dalam folder dengan nama "Kelinci_" atau "Kucing_" kemudian diikuti dengan tanggal unduh dengan format "DD-MM-YYYY"
 
-**Solusi:**
+**Cara pengerjaan**
 
 Pertama, inisialisasi variabel `N` dan `sama`. Variabel `N` digunakan untuk membatasi jumlah file dan juga digunakan untuk memberi nama pada file gambar. Sedangkan variabel `sama` digunakan untuk menghitung dan menyimpan berapa jumlah file yang sama pada variabel tersebut.
 
@@ -631,7 +631,7 @@ Gambar di atas merupakan hasil unduh apabila hari sebelumnya telah mengunduh gam
 ### Soal 3d
 Diminta untuk memindahkan seluruh folder ke zip yang diberi nama `Koleksi.zip` dan menguncinya dengan password berupa tanggal saat ini dengan format "MMDDYYYY".
 
-**Solusi:**
+**Cara pengerjaan**
 
 Jalankan command `zip` dengan diikuti `-P` untuk memberi password dengan diikuti dengan `date +"%m%d%Y"` untuk mengatur password sesuai dengan format yang diminta. Kemudian diikuti dengan `-r` dan `-m` untuk mengompres semua file dan memindahkannya kedalam zip dengan nama `Koleksi.zip` dan masukkan semua folder yang memiliki awalan nama `Kucing` atau `Kelinci` 
 
@@ -647,7 +647,7 @@ zip -P `date +"%m%d%Y"` -r -m  Koleksi.zip ./Kucing* ./Kelinci*
 ### Soal 3e
 Diminta untuk zip semua koleksi gambar secara otomatis setiap hari senin hingga jumat, dari jam 7 pagi sampai 6 sore, lalu unzip semua koleksi gambar pada selain waktu tersebut dan tidak ada file zip sama sekali.
 
-**Solusi:**
+**Cara pengerjaan**
 
 Lakukan zip pada semua folder gambar dengan awalan `Kucing` dan `Kelinci` dengan menggunakan command yang sama seperti pada poin soal sebelumnya dan jalankan secara otomatis dengan menggunakan crontab dengan mengaturnya agar berjalan setiap hari senin hingga jumat pukul 7 pagi.
 
