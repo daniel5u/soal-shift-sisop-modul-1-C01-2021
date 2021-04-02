@@ -624,6 +624,7 @@ fi
 **Hasil**
 
 
+![SS hasil 3c](https://user-images.githubusercontent.com/81345045/113407241-1a188b80-93d7-11eb-8373-a420682302ca.JPG)
 
 Gambar di atas merupakan hasil unduh apabila hari sebelumnya talah mengunduh gambar kelinci, maka hari ini akan mengunduh gambar kucing.
 
@@ -666,7 +667,11 @@ Kemudian, unzip file `Koleksi.zip` dengan memasukkan password saat ini dan jalan
 **Hasil**
 
 
+![SS hasil 3e (1)](https://user-images.githubusercontent.com/81345045/113407246-1dac1280-93d7-11eb-88c3-35a09a90d1e6.JPG)
+
 Gambar di atas merupakan hasil zip pada semua folder yang diawali dengan nama "Kucing" dan "Kelinci".
 
+
+![SS hasil 3e (2)](https://user-images.githubusercontent.com/81345045/113407254-200e6c80-93d7-11eb-9962-877eab248ac3.JPG)
 
 Gambar di atas merupakan hasil unzip dari file Koleksi.zip dan menghapus file zip tersebut.
