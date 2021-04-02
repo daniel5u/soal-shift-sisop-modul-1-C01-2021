@@ -19,6 +19,7 @@ Diminta ,mengumpulkan informasi dari log aplikasi yang terdapat pada file syslog
 Pertama, buat file bash yang berisi command untuk menjalankan file bash dari soal
 Kemudian kita input syslog untuk mengakses data 
 Kita dapatkan data error dengan grep command setelah itu kita read data dari grep tersebut dengan menggunakan fungsi cat dan regex
+Disini kami menggunakan beberapa Regex yang memiliki fungsi masing2 untuk menampilkan error atau info maupun keduanya, serta untuk menampilkan log dan user
 lalu terakhir kita dapatkan hasilnya
 ```
 #!/bin/bash
@@ -37,6 +38,9 @@ Kemudian, Ryujin harus menampilkan semua pesan error yang muncul beserta jumlah 
 **Cara pengerjaan**
 
 Pertama, dibuatkan fungsi untuk mengakses data error
+Oleh karena hanya diminta Error saja maka kami modifikasi regex tersebut hanya untuk menampilkan error saja
+Program pembacaan akan dijalankan pada setiap line dengan iterasi ```while``` agar tidak terjadi miss output
+setelah itu tampilkan hasil dari error yang sudah di sort dan read
 ```
 get_error_log(){
  local s=$1 regex=$2 
@@ -46,7 +50,6 @@ get_error_log(){
  done
 }
 ```
-Kemudian Dapatkan semua pesan error dan sorting kemudian munculkan pesan
 ```
 errorlog=$(
 while read -r line
@@ -61,12 +64,12 @@ echo $sortederrorlog
 Ryujin juga harus dapat menampilkan jumlah kemunculan log ERROR dan INFO untuk setiap user-nya.
 
 **Cara pengerjaan**
-Pertama kita buat fungsi untuk menampilkan error log untuk setiap user
+Pertama kita buat fungsi untuk menampilkan error log untuk setiap user menggunakan regex yang sudah dibuat untuk menampilkan user
 ```
 get_user_log(){
  local s=$1 regex=$2
  ```
- Kemudian kita iterasikan menggunakan while
+ Kemudian kita iterasikan menggunakan while dengan pembacaan pada setiap line sama seperti cara 1b
  ```
  while [[ $s =~ $regex ]]; do
   printf "${BASH_REMATCH[3]}\n"
@@ -87,8 +90,9 @@ sorteduserlog=$(echo $userlog | sort | uniq | sort)
 Semua informasi yang didapatkan pada poin b dituliskan ke dalam file error_message.csv dengan header Error,Count yang kemudian diikuti oleh daftar pesan error dan jumlah kemunculannya diurutkan berdasarkan jumlah kemunculan pesan error dari yang terbanyak.
 
 **Cara pengerjaan**
-Pertama inisiasi poin b yang sudah dituliskan menggunakan echo 
+Pertama inisiasi ```sortederrorlog```
 kemudian read data poin b yang sudah di inisiasi
+ambil data pesan log yang ada
 lalu redirect menjadi file csv.
 ```
 printf "Error,Count\n" >> "error_message.csv"
@@ -103,7 +107,7 @@ done >> "error_message.csv"
 Semua informasi yang didapatkan pada poin c dituliskan ke dalam file user_statistic.csv dengan header Username,INFO,ERROR diurutkan berdasarkan username secara ascending.
 
 **Cara pengerjaan**
-Solusi sama dengan poin 1d  hanya diberi header 
+Solusi sama dengan poin 1d 
 setelah itu langsung redirect ke dalam file csv
 ```
 error=$(grep "ERROR" "$input") 
@@ -116,6 +120,7 @@ do
  printf "$line,$infocount,$errcount\n"
 done >> "user_statistic.csv"
 ```
+Output
 
 ## Soal 2
 Pendiri dan manager dari TokoShiSop meminta agar dicarikan beberapa kesimpulan dari data penjualan “Laporan-TokoShiSop.tsv”.
