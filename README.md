@@ -634,7 +634,7 @@ Lakukan zip pada semua folder gambar dengan awalan `Kucing` dan `Kelinci` dengan
 0 7 * * 1-5 zip -P `date +"%m%d%Y"` -r -m Koleksi.zip ./Kucing* ./Kelinci*
 ```
 
-Kemudian, unzip file `Koleksi.sip` dengan memasukkan password saat ini dan jalankan secara otomatis dengan menggunakan crontab dengan mengaturnya agar berjalan setiap hari senin hingga jumat pukul 6 sore(18) dan hapus file `Koleksi.zip`.
+Kemudian, unzip file `Koleksi.zip` dengan memasukkan password saat ini dan jalankan secara otomatis dengan menggunakan crontab dengan mengaturnya agar berjalan setiap hari senin hingga jumat pukul 6 sore(18) dan hapus file `Koleksi.zip`.
 
 ```
 0 18 * * 1-5 unzip -P `date +"%m%d%Y"` Koleksi.zip && rm Koleksi.zip
