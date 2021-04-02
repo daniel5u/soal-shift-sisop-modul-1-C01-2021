@@ -46,6 +46,7 @@ Program pembacaan akan dijalankan pada setiap line dengan iterasi ```while``` ag
 setelah itu tampilkan hasil dari error yang sudah di sort dan read
 
 ```
+IFS=
 get_error_log(){
  local s=$1 regex=$2 
  while [[ $s =~ $regex ]]; do
@@ -104,7 +105,7 @@ lalu redirect menjadi file csv.
 printf "Error,Count\n" >> "error_message.csv"
 echo "$sortederrorlog" | grep -oP "^ *[0-9]+ \K.*" | while read -r line
 do
- count=$(grep "$line" "$input" | wc -l)
+ count=$(grep "$line" "$input" | wc -l | tr "\\t" ",")
  printf "$line,$count\n"
 done >> "error_message.csv"
 ```
