@@ -626,7 +626,7 @@ fi
 
 ![SS hasil 3c](https://user-images.githubusercontent.com/81345045/113407241-1a188b80-93d7-11eb-8373-a420682302ca.JPG)
 
-Gambar di atas merupakan hasil unduh apabila hari sebelumnya talah mengunduh gambar kelinci, maka hari ini akan mengunduh gambar kucing.
+Gambar di atas merupakan hasil unduh apabila hari sebelumnya telah mengunduh gambar kelinci, maka hari ini akan mengunduh gambar kucing.
 
 ### Soal 3d
 Diminta untuk memindahkan seluruh folder ke zip yang diberi nama `Koleksi.zip` dan menguncinya dengan password berupa tanggal saat ini dengan format "MMDDYYYY".
