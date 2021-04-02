@@ -472,6 +472,11 @@ Lalu jalankan command di atas secara otomatis menggunakan crontab seperti yang t
 **Kendala**
 * Tidak ada
 
+**Hasil**
+
+
+Gambar di atas merupakan hasil dari pemindahan file gambar yang telah diunduh dan file log-nya ke folder dengan nama tanggal unduh dengan format "DD-MM-YYYY".
+
 ### Soal 3c
 Diminta untuk mengunduh gambar kelinci ("https://loremflickr.com/320/240/bunny") dan kucing ("https://loremflickr.com/320/240/kitten") seperti pada poin sebelumnya secara bergantian setiap hari dan memasukkannya ke dalam folder dengan nama "Kelinci_" atau "Kucing_" kemudian diikuti dengan tanggal unduh dengan format "DD-MM-YYYY"
 
